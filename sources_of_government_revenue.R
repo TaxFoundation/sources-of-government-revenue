@@ -50,12 +50,12 @@ search_dataset("Global Revenue", data= dataset_list)
 
 dataset <- ("RS_GBL")
 
-dstruc <- get_data_structure(dataset)
-str(dstruc, max.level = 1)
-dstruc$VAR
-dstruc$TAX
-dstruc$GOV
-dstruc$YEA
+#dstruc <- get_data_structure(dataset)
+#str(dstruc, max.level = 1)
+#dstruc$VAR
+#dstruc$TAX
+#dstruc$GOV
+#dstruc$YEA
 
 all_data <- get_dataset("RS_GBL", start_time = 2017)
 
@@ -828,3 +828,4 @@ colnames(oecd_data_2018_long)[colnames(oecd_data_2018_long)=="share.5000"] <- "C
 oecd_data_2018_long[,c('Individual Taxes', 'Corporate Taxes', 'Social Insurance Taxes', 'Property Taxes', 'Consumption Taxes', 'Other')] <- round(oecd_data_2018_long[,c('Individual Taxes', 'Corporate Taxes', 'Social Insurance Taxes', 'Property Taxes', 'Consumption Taxes', 'Other')], digits = 1)
 
 write.csv(oecd_data_2018_long, "final-outputs/oecd_by_country.csv")
+
