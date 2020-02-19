@@ -5,9 +5,9 @@ The Tax Foundation’s publication [Sources of Government Revenue in the OECD](h
 ## The Dataset and its Tax Revenue Categories and Scope
 
 ### The Dataset
-All the revenue data used in this publication comes from the OECD's Global Revenue Statistics Database (https://stats.oecd.org/Index.aspx?DataSetCode=RS_GBL). The dataset includes annual revenue data for almost 100 countries worldwide, dating back to 1965 for many OECD countries and 1990 for a number of non-OECD countries. As of February 2020, the most recent data is 2018 for OECD countries and 2017 for non-OECD countries.
+All the revenue data used in this publication comes from the OECD's Global Revenue Statistics Database (https://stats.oecd.org/Index.aspx?DataSetCode=RS_GBL). The dataset includes annual revenue data for almost 100 countries worldwide, dating to 1965 for many OECD countries and 1990 for a number of non-OECD countries. As of February 2020, the most recent data is 2018 for OECD countries and 2017 for non-OECD countries.
 
-Details regarding the OECD dataset can be found in "Revenue Statistics 1965-2017: Interpretative Guide," http://www.oecd.org/tax/tax-policy/oecd-classification-taxes-interpretative-guide.pdf.
+Details regarding the OECD dataset can be found in “Revenue Statistics 1965-2017: Interpretative Guide,” http://www.oecd.org/tax/tax-policy/oecd-classification-taxes-interpretative-guide.pdf.
 
 ### Revenue Categories
 The OECD's Global Revenue Statistics Database provides various categories for the different tax revenue sources. For our report, we chose and combined these categories as follows:
@@ -22,7 +22,7 @@ The OECD's Global Revenue Statistics Database provides various categories for th
 
 * **Consumption Taxes:** Covers the OECD category *5000 Taxes on goods and services*.
 
-* **Other:** Covers the OECD categories *1300 Unallocable between 1100 and 1200*, *3000 Taxes on payroll and workforce,* *6000 Taxes other than 1000, 2000, 3000, 4000 and 5000*, and *Custom duties collected for the EU*.
+* **Other:** Covers the OECD categories *1300 Unallocable between 1100 and 1200*; *3000 Taxes on payroll and workforce*; *6000 Taxes other than 1000, 2000, 3000, 4000 and 5000*; and *Custom duties collected for the EU*.
 
 ### Scope: Countries Covered by Region
 
