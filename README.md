@@ -1,6 +1,6 @@
 # Sources of Government Revenue
 
-The Tax Foundation’s publication [Sources of Government Revenue](https://taxfoundation.org/publications/sources-of-government-revenue-in-the-oecd/) shows to what extent OECD and non-OECD countries rely on different tax revenue sources.
+The Tax Foundation’s publication [Sources of Government Revenue in the OECD](https://taxfoundation.org/publications/sources-of-government-revenue-in-the-oecd/) shows to what extent OECD and non-OECD countries rely on different tax revenue sources.
 
 ## The Dataset and its Tax Revenue Categories and Scope
 
@@ -60,7 +60,7 @@ Location of **input** files to .R code file including:
 
 Location of **intermediate output** files of .R code file including:
 
-- `data_preliminary.csv` Tax revenue shares for all countries for the years 1990, 2017, and 2018 (note: 2018 data is not available for all non-OECD countries, Australia, Japan, and Mexico).
+- `data_preliminary.csv` Tax revenue shares for all countries for the years 1990, 2017, and 2018 (note: 2018 data is not available for all non-OECD countries including Australia, Japan, and Mexico).
 
 ### /final-outputs
 Location of **output tables** that are included in the publication.
@@ -75,6 +75,6 @@ Location of **output tables** that are included in the publication.
 
 - `oecd_averages_1990.csv` Table comparing the 2018 OECD average tax revenue shares with the corresponding 1990 shares.
 
-- `oecd_by_country.csv` Table showing the tax revenue shares for each OECD country.
+- `oecd_by_country.csv` Table showing the tax revenue shares for each OECD country, Table 1 in the publication.
 
-- `regional_averages.csv` Table showing the average tax revenue shares by continents.
+- `regional_averages.csv` Table showing the average tax revenue shares by continents, Table 2 in the publication.
