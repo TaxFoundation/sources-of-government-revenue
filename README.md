@@ -1,25 +1,30 @@
-Interpretive Guide: OECD, "Revenue Statistics 1965-2017: Interpretative Guide," http://www.oecd.org/tax/tax-policy/oecd-classification-taxes-interpretative-guide.pdf.
-
 # Sources of Government Revenue
-
-[UPDATE]
 
 The Tax Foundation’s publication [Sources of Government Revenue](https://taxfoundation.org/publications/sources-of-government-revenue-in-the-oecd/) shows to what extent OECD and non-OECD countries rely on different tax revenue sources.
 
 ## The Dataset and its Tax Revenue Categories
 
 ### The Dataset
-The dataset compiled for this publication includes the 2019 statutory corporate income tax rates of 218 sovereign states and dependent territories around the world. Tax rates were researched only for jurisdictions that are among the almost 250 sovereign states and dependent territories that have been assigned a country code by the International Organization for Standardization (ISO). As a result, zones or territories that are independent taxing jurisdictions but do not have their own country code are not included in the dataset.
+All the revenue data used in this publication comes from the OECD's Global Revenue Statistics Database (https://stats.oecd.org/Index.aspx?DataSetCode=RS_GBL). The dataset includes annual revenue data for almost 100 countries worldwide, dating back to 1965 for many OECD countries and to 1990 for a number of non-OECD countries. As of February 2020, the most recent data is 2018 for OECD countries and 2017 for non-OECD countries.
 
-In addition, the dataset includes historic statutory corporate income tax rates for the time period 1980 to 2018. However, these years cover tax rates of fewer than 218 jurisdictions due to missing data points.
+Details regarding the dataset can be found in "Revenue Statistics 1965-2017: Interpretative Guide," http://www.oecd.org/tax/tax-policy/oecd-classification-taxes-interpretative-guide.pdf.
 
-To be able to calculate average statutory corporate income tax rates weighted by GDP, the dataset includes GDP data for 176 jurisdictions. When used to calculate average statutory corporate income tax rates, either weighted by GDP or unweighted, only these 176 jurisdictions are included (to ensure the comparability of the unweighted and weighted averages).
+### Revenue Categories
+The OECD's Global Revenue Statistics Database provides various tax categories for the different tax revenue sources. For our report, we chose and combined these categories as follows:
 
-### Definition of Selected Corporate Income Tax Rate
-The dataset captures standard top statutory corporate income tax rates levied on domestic businesses. This means:
-- The dataset does not reflect special tax regimes, including but not limited to patent boxes, offshore regimes, or special rates for specific industries. 
-- A number of countries levy lower rates for businesses below a certain revenue threshold. The dataset does not capture these lower rates.
-- A few countries levy gross revenue taxes on businesses instead of corporate income taxes. Since the tax rates of a corporate income tax and a gross revenue tax are not comparable, these countries are excluded from the dataset.
+* **Individual Taxes:** Covers the OECD category *1100 Taxes on income, profits and capital gains of individuals*.
+
+* **Corporate Taxes:** Covers the OECD category *1200 Taxes on income, profits and capital gains of corporates*.
+
+* **Social Insurance Taxes:** Covers the OECD category *2000 Social security contributions (SSC)*.
+
+* **Property Taxes:** Covers the OECD category *4000 Taxes on property*.
+
+* **Consumption Taxes:** Covers the OECD category *5000 Taxes on goods and services*.
+
+* **Other:** Covers the OECD categories *1300 Unallocable between 1100 and 1200*, *3000 Taxes on payroll and workforce,* *6000 Taxes other than 1000, 2000, 3000, 4000 and 5000*, and *Custom duties collected for the EU*.
+
+
 
 ## Explanation of Files in Repository
 
