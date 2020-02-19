@@ -1,6 +1,6 @@
 ###Sources of Government Revenue###
 
-#Clean up working environment####
+#Clear working environment####
 rm(list=ls())
 gc()
 
@@ -43,9 +43,8 @@ using(dplyr)
 using(naniar)
 
 
-#OECD Data####
 
-#Read in OECD's global tax revenue statistics dataset
+#Reading in and cleaning OECD's global tax revenue statistics dataset###
 dataset_list <- get_datasets()
 search_dataset("Global Revenue", data= dataset_list)
 
@@ -64,25 +63,27 @@ all_data_1990 <- get_dataset("RS_GBL", start_time = 1990, end_time = 1990)
 
 all_data <- rbind(all_data, all_data_1990)
 
-#Drop redundant rows
+#Only keep data that shows tax revenue as a share of total revenue (drop other indicators)
 all_data <- subset(all_data, all_data$VAR == "TAXPER")
 all_data <- subset(all_data, all_data$GOV == "NES")
 
+#Only keep the tax revenue categories used in the publication (drop the remaining ones)
 all_data <- subset(all_data, subset = TAX == "1100" | TAX == "1200" | TAX == "1300" | TAX == "2000" | TAX == "3000" | TAX == "4000" | TAX == "5000" | TAX == "6000" | TAX == "CUS")
 
-#Drop redundant column
+#Drop redundant columns
 all_data <- subset(all_data, select=-c(TIME_FORMAT, GOV, VAR))
 
-#Rename column names
+#Rename columns
 colnames(all_data)[colnames(all_data)=="COU"] <- "iso_3"
 colnames(all_data)[colnames(all_data)=="TAX"] <- "category"
 colnames(all_data)[colnames(all_data)=="obsTime"] <- "year"
 colnames(all_data)[colnames(all_data)=="obsValue"] <- "share"
 
 
+
 #Import and match country names with ISO-3 codes###
 
-#Read in country names
+#Read in country name file
 country_names <- read.csv("source-data/country_codes.csv")
 
 #Keep and rename selected columns
@@ -94,12 +95,10 @@ colnames(country_names)[colnames(country_names)=="ISO3166.1.Alpha.3"] <- "iso_3"
 colnames(country_names)[colnames(country_names)=="Continent"] <- "continent"
 
 #Replace continent abbreviation 'NA' (North America) to 'NO' (R does not recognize 'NA' as a character)
-
 country_names$continent <- as.character(country_names$continent)
 country_names$continent <- if_else(is.na(country_names$continent),"NO",country_names$continent)
 
-#Add country names and continents to all_data, and define OECD countries###
-
+#Add country names and continents to all_data, and add variable signaling OECD countries###
 all_data <- merge(all_data, country_names, by='iso_3')
 
 all_data$oecd <- ifelse(all_data$iso_3 == "AUS"
@@ -140,14 +139,20 @@ all_data$oecd <- ifelse(all_data$iso_3 == "AUS"
                                        | all_data$iso_3 == "USA"
                                        ,1,0)
 
-
 #Adjust the order of the columns
 all_data <- all_data[c("iso_2", "iso_3", "country", "continent", "oecd", "year", "category", "share")]
+
+#Fix country name that was read in incorrectly
+all_data$country <- as.character(all_data$country)
+all_data[all_data$iso_3 == "CIV", "country"] <- "Cote d'Ivoire"
+
+write.csv(all_data, "intermediate-outputs/data_preliminary.csv")
+
 
 
 #Fix countries for which 2018 data is not available (unless otherwise noted, 2017 data is used for these cases)###
 
-#Greece: Greece doesn't have data for the categories 1100, 1200, and 1300 (only for 1000); so we take the average share of these categories of the three years prior (2015-2017) to weigh the weigh the current year
+#Greece: Greece doesn't have data for the categories 1100, 1200, and 1300 (only for 1000); so we take the average share of these categories of the three years prior (2015-2017) to weigh the current year
 missing_greece <- data.frame(iso_2 = c("GR", "GR", "GR"), iso_3 = c("GRC","GRC", "GRC"), country = c("Greece","Greece", "Greece"), continent = c("EU", "EU", "EU"), oecd = c(1, 1, 1), year = c(2018, 2018, 2018), category = c(1100, 1200, 1300), share = c(15.58660311, 5.765385917, 1.666333732))
 
 #Australia: 2018 data not available -> use 2017 data
@@ -168,14 +173,9 @@ missing_mexico[missing_mexico$year == 2017, "year"] <- 2018
 #Combine data
 all_data <- rbind(all_data, missing_greece, missing_australia, missing_japan, missing_mexico)
 
-
-#Sort data
+#Sort dataset
 all_data <- all_data[order(all_data$country, all_data$category, all_data$year),]
 
-
-#Fix country names that were read in incorrectly###
-all_data$country <- as.character(all_data$country)
-all_data[all_data$iso_3 == "CIV", "country"] <- "Cote d'Ivoire"
 
 
 #Calculate average OECD tax revenue sources###
@@ -184,7 +184,6 @@ all_data[all_data$iso_3 == "CIV", "country"] <- "Cote d'Ivoire"
 oecd_data_2018 <- all_data
 oecd_data_2018 <- subset(oecd_data_2018, subset = year == 2018)
 oecd_data_2018 <- subset(oecd_data_2018, subset = oecd == 1)
-
 
 #Calculate averages for 1100 (individual taxes)
 individual_1100 <- subset(oecd_data_2018, category==1100)
@@ -249,30 +248,29 @@ oecd_data_1990 <- subset(oecd_data_1990, subset = year == 1990)
 oecd_data_1990 <- subset(oecd_data_1990, subset = oecd == 1)
 
 #Drop countries for which 1990 data is available but that were not part of the OECD in 1990
-
 oecd_data_1990 <- subset(oecd_data_1990, oecd_data_1990$iso_3 != "CHL" & oecd_data_1990$iso_3 != "KOR" & oecd_data_1990$iso_3 != "MEX")
                          
-#Calculate averages for 1100 (individual taxes)
+#Calculate averages for 1100 (individual taxes) for 1990 data
 individual_1100_90 <- subset(oecd_data_1990, category==1100)
 individual_1100_mean_90 <- mean(individual_1100_90$share, na.rm = TRUE)
 
-#Calculate averages for 1200 (corporate taxes)
+#Calculate averages for 1200 (corporate taxes) for 1990 data
 corporate_1200_90 <- subset(oecd_data_1990, category==1200)
 corporate_1200_mean_90 <- mean(corporate_1200_90$share, na.rm = TRUE)
 
-#Calculate averages for 2000 (social insurance taxes)
+#Calculate averages for 2000 (social insurance taxes) for 1990 data
 social_2000_90 <- subset(oecd_data_1990, category==2000)
 social_2000_mean_90 <- mean(social_2000_90$share, na.rm = TRUE)
 
-#Calculate averages for 4000 (property taxes)
+#Calculate averages for 4000 (property taxes) for 1990 data
 property_4000_90 <- subset(oecd_data_1990, category==4000)
 property_4000_mean_90 <- mean(property_4000_90$share, na.rm = TRUE)
 
-#Calculate averages for 5000 (consumption taxes)
+#Calculate averages for 5000 (consumption taxes) for 1990 data
 consumption_5000_90 <- subset(oecd_data_1990, category==5000)
 consumption_5000_mean_90 <- mean(consumption_5000_90$share, na.rm = TRUE)
 
-#Calculate averages for 1300 + 3000 + 6000 + CUS (Other)
+#Calculate averages for 1300 + 3000 + 6000 + CUS (Other) for 1990 data
 other_90 <- subset(oecd_data_1990, category == 1300 | category == 3000 | category == 6000 | category == "CUS")
 other_90 <- subset(other_90, select = -c(continent, oecd, year))
 
@@ -292,9 +290,7 @@ other_long_90$sum <- rowSums(other_long_90[,c("1300", "3000", "6000", "CUS")])
 
 other_mean_90 <- mean(other_long_90$sum, na.rm = TRUE)
 
-
 #Compile averages into one dataframe
-
 average_oecd_90 <- c(individual_1100_mean_90, corporate_1200_mean_90, social_2000_mean_90, property_4000_mean_90, consumption_5000_mean_90, other_mean_90)
 
 oecd_averages_90 <- data.frame(tax_categories, average_oecd, average_oecd_90)
@@ -417,7 +413,7 @@ write.csv(gbr_oecd_averages, "final-outputs/gbr_oecd_averages.csv")
 
 #Graph comparing tax revenue shares by region###
 
-#Get non-OECD data for 2017 (2018 data not available for non-OECD countries)
+#Get non-OECD data for 2017 (2018 data not available for non-OECD countries as of February 2020)
 non_oecd_data <- subset(all_data, subset = oecd == 0)
 non_oecd_data <- subset(non_oecd_data, subset = year == "2017")
 
@@ -461,23 +457,19 @@ missing_uganda <- data.frame(iso_2 = c("UG"), iso_3 = c("UGA"), country = c("Uga
 #Vanuatu
 missing_vanuatu <- data.frame(iso_2 = c("VU"), iso_3 = c("VUT"), country = c("Vanuatu"), continent = c("OC"), oecd = c(0), year = c(2017), category = c(1100, 1200, 1300), share = c(0,0,0))
 
-#Combine data
+#Put all rows into one dataframe
 non_oecd_data <- rbind(non_oecd_data, missing_ecuador, missing_jamaica, missing_nicaragua, missing_botswana, missing_congo, missing_drc, missing_eqguinea, missing_ghana, missing_nigeria, missing_togo, missing_uganda, missing_vanuatu)
 
-
-
-#Combine non-OECD and OECD countries into one dataframe###
+#Combine non-OECD and OECD countries into one dataframe
 oecd_and_non_oecd <- rbind(oecd_data_2018, non_oecd_data)
-
 
 #Change the continent assigned to Turkey from Asia to Europe (that's how it is done in the publication)
 oecd_and_non_oecd[oecd_and_non_oecd$country == "Turkey", "continent"] <- "EU"
 
 
+#Calculate regional averages
 
-#Calculate regional averages###
-
-##Africa
+#Africa
 
 #Calculate averages for 1100 (individual taxes)
 individual_1100_af <- subset(oecd_and_non_oecd, category==1100 & continent == "AF")
@@ -530,8 +522,7 @@ africa_averages$average_africa <- round(africa_averages$average_africa, digits =
 colnames(africa_averages)[colnames(africa_averages)=="tax_categories"] <- "Tax Category"
 colnames(africa_averages)[colnames(africa_averages)=="average_africa"] <- "Average Share Africa"
 
-
-##Asia
+#Asia
 
 #Calculate averages for 1100 (individual taxes)
 individual_1100_as <- subset(oecd_and_non_oecd, category==1100 & continent == "AS")
@@ -584,8 +575,7 @@ asia_averages$average_asia <- round(asia_averages$average_asia, digits = 1)
 colnames(asia_averages)[colnames(asia_averages)=="tax_categories"] <- "Tax Category"
 colnames(asia_averages)[colnames(asia_averages)=="average_asia"] <- "Average Share Asia"
 
-
-##Europe
+#Europe
 
 #Calculate averages for 1100 (individual taxes)
 individual_1100_eu <- subset(oecd_and_non_oecd, category==1100 & continent == "EU")
@@ -638,8 +628,7 @@ europe_averages$average_europe <- round(europe_averages$average_europe, digits =
 colnames(europe_averages)[colnames(europe_averages)=="tax_categories"] <- "Tax Category"
 colnames(europe_averages)[colnames(europe_averages)=="average_europe"] <- "Average Share Europe"
 
-
-##North America
+#North America
 
 #Calculate averages for 1100 (individual taxes)
 individual_1100_no <- subset(oecd_and_non_oecd, category==1100 & continent == "NO")
@@ -692,8 +681,7 @@ namerica_averages$average_namerica <- round(namerica_averages$average_namerica, 
 colnames(namerica_averages)[colnames(namerica_averages)=="tax_categories"] <- "Tax Category"
 colnames(namerica_averages)[colnames(namerica_averages)=="average_namerica"] <- "Average Share North America"
 
-
-##Oceania
+#Oceania
 
 #Calculate averages for 1100 (individual taxes)
 individual_1100_oc <- subset(oecd_and_non_oecd, category==1100 & continent == "OC")
@@ -746,8 +734,7 @@ oceania_averages$average_oceania <- round(oceania_averages$average_oceania, digi
 colnames(oceania_averages)[colnames(oceania_averages)=="tax_categories"] <- "Tax Category"
 colnames(oceania_averages)[colnames(oceania_averages)=="average_oceania"] <- "Average Share Oceania"
 
-
-##South America
+#South America
 
 #Calculate averages for 1100 (individual taxes)
 individual_1100_sa <- subset(oecd_and_non_oecd, category==1100 & continent == "SA")
@@ -800,7 +787,6 @@ samerica_averages$average_samerica <- round(samerica_averages$average_samerica, 
 colnames(samerica_averages)[colnames(samerica_averages)=="tax_categories"] <- "Tax Category"
 colnames(samerica_averages)[colnames(samerica_averages)=="average_samerica"] <- "Average Share South America"
 
-
 #Combine regional averages into one dataframe
 regional_averages <- data.frame(tax_categories, africa_averages$`Average Share Africa`, asia_averages$`Average Share Asia`, europe_averages$`Average Share Europe`, namerica_averages$`Average Share North America`, oceania_averages$`Average Share Oceania`, samerica_averages$`Average Share South America`, average_oecd)
 
@@ -819,7 +805,7 @@ write.csv(regional_averages, "final-outputs/regional_averages.csv")
 
 
 
-#Write table showing tax revenue shares for all OECD countries###
+#Create table showing tax revenue shares for each OECD country###
 
 oecd_data_2018_long <- subset(oecd_data_2018, select = -c(continent, oecd, year, iso_2, iso_3))
 
