@@ -34,7 +34,7 @@ For the following countries, the OECD does not provide data for some tax categor
  * Nigeria (missing category: 4000)
  * Togo (missing category: 2000)
  * Uganda (missing categories: 2000, 4000)
- * Vanuatu (missing category: 1100, 1200, 1300)
+ * Vanuatu (missing categories: 1100, 1200, 1300)
 
 
 ____________________________________________________

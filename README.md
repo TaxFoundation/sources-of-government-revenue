@@ -26,11 +26,11 @@ The OECD's Global Revenue Statistics Database provides various categories for th
 
 ### Scope: Countries Covered by Region
 
-* **Africa:** Botswana, Burkina Faso, Cameroon, Cabo Verde, Congo,Democratic Republic of the Congo, Côte d'Ivoire, Egypt, Equatorial Guinea, Ghana, Kenya, Madagascar, Mali, Mauritania, Mauritius, Morocco, Niger, Nigeria, Rwanda, Senegal, Seychelles, South Africa, Eswatini, Togo, Tunisia, and Uganda.
+* **Africa:** Botswana, Burkina Faso, Cameroon, Cabo Verde, Congo, Democratic Republic of the Congo, Côte d'Ivoire, Egypt, Equatorial Guinea, Ghana, Kenya, Madagascar, Mali, Mauritania, Mauritius, Morocco, Niger, Nigeria, Rwanda, Senegal, Seychelles, South Africa, Eswatini, Togo, Tunisia, and Uganda.
 
 * **Asia:** Israel, Japan, Korea, Indonesia, Kazakhstan, Malaysia, Philippines, Singapore, and Thailand.
 
-* **Europe:** Austria, Belgium, Czech Republic, Denmark, Estonia, Finland, France, Germany, Greece, Hungary, Iceland, Ireland, Italy, Latvia, Lithuania, Luxembourg, Netherlands, Norway, Poland,Portugal, Slovak Republic, Slovenia, Spain, Sweden, Switzerland, Turkey, and United Kingdom.
+* **Europe:** Austria, Belgium, Czech Republic, Denmark, Estonia, Finland, France, Germany, Greece, Hungary, Iceland, Ireland, Italy, Latvia, Lithuania, Luxembourg, Netherlands, Norway, Poland, Portugal, Slovak Republic, Slovenia, Spain, Sweden, Switzerland, Turkey, and United Kingdom.
 
 * **North America:** Canada, Mexico, United States, Bahamas, Barbados, Belize, Costa Rica, Cuba, Dominican Republic, El Salvador, Guatemala, Honduras, Jamaica, Nicaragua, Panama, and Trinidad and Tobago.
 
@@ -60,7 +60,7 @@ Location of **input** files to .R code file including:
 
 Location of **intermediate output** files of .R code file including:
 
-- `data_preliminary.csv` Tax revenue shares for all countries for the years 1990, 2017, and 2018 (2018 data is not available for all non-OECD countries, Australia, Japan, and Mexico).
+- `data_preliminary.csv` Tax revenue shares for all countries for the years 1990, 2017, and 2018 (note: 2018 data is not available for all non-OECD countries, Australia, Japan, and Mexico).
 
 ### /final-outputs
 Location of **output tables** that are included in the publication.
