@@ -443,7 +443,7 @@ missing_drc <- data.frame(iso_2 = c("CD"), iso_3 = c("COD"), country = c("Democr
 missing_eqguinea <- data.frame(iso_2 = c("GQ"), iso_3 = c("GNQ"), country = c("Equatorial Guinea"), continent = c("AF"), oecd = c(0), year = c(2017), category = c(2000), share = c(0))
 
 #Ghana
-missing_ghana <- missing_eqguinea <- data.frame(iso_2 = c("GH"), iso_3 = c("GHA"), country = c("Ghana"), continent = c("AF"), oecd = c(0), year = c(2017), category = c(4000), share = c(0))
+missing_ghana <- data.frame(iso_2 = c("GH"), iso_3 = c("GHA"), country = c("Ghana"), continent = c("AF"), oecd = c(0), year = c(2017), category = c(4000), share = c(0))
 
 #Nigeria
 missing_nigeria <- data.frame(iso_2 = c("NG"), iso_3 = c("NGA"), country = c("Nigeria"), continent = c("AF"), oecd = c(0), year = c(2017), category = c(4000), share = c(0))
