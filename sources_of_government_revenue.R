@@ -81,7 +81,7 @@ oecd_countries<-c("AUS",
                   "GBR",
                   "USA")
 
-#Reading in and cleaning OECD's global tax revenue statistics dataset###
+#Reading in and cleaning OECD's global tax revenue statistics dataset####
 #dataset_list <- get_datasets()
 #search_dataset("Global Revenue", data= dataset_list)
 
@@ -172,6 +172,44 @@ all_data <- all_data[c("iso_2", "iso_3", "country", "continent", "oecd", "year",
 
 write.csv(all_data, "intermediate-outputs/data_preliminary.csv",row.names=F)
 
+#Inflation data####
+
+dataset_list <- get_datasets()
+search_dataset("price", data= dataset_list)
+
+dataset <- ("PRICES_CPI")
+
+dstruc <- get_data_structure(dataset)
+str(dstruc, max.level = 1)
+#List of 11
+#$ VAR_DESC       :'data.frame':	11 obs. of  2 variables:
+#  $ LOCATION       :'data.frame':	53 obs. of  2 variables:
+#  $ SUBJECT        :'data.frame':	104 obs. of  2 variables:
+#  $ MEASURE        :'data.frame':	7 obs. of  2 variables:
+#  $ FREQUENCY      :'data.frame':	3 obs. of  2 variables:
+#  $ TIME           :'data.frame':	1610 obs. of  2 variables:
+#  $ OBS_STATUS     :'data.frame':	15 obs. of  2 variables:
+#  $ UNIT           :'data.frame':	316 obs. of  2 variables:
+#  $ POWERCODE      :'data.frame':	32 obs. of  2 variables:
+#  $ REFERENCEPERIOD:'data.frame':	96 obs. of  2 variables:
+#  $ TIME_FORMAT    :'data.frame':	5 obs. of  2 variables:
+
+#dstruc$VAR_DESC
+#dstruc$LOCATION
+#dstruc$SUBJECT
+#dstruc$MEASURE
+#dstruc$FREQUENCY
+#dstruc$TIME
+#dstruc$OBS_STATUS
+#dstruc$MEASURE
+
+inflation <- get_dataset("PRICES_CPI",filter=list(c("OECD"),c("CPALTT01"),
+                                                  c("IXOB"),c("A")),
+                         start_time = 2008, end_time = 2017)
+inflation<- subset(inflation, select=c(obsTime, obsValue))
+
+colnames(inflation)<-c("year","inflation")
+
 #Calculate average OECD tax revenue sources####
 
 #Categories
@@ -212,7 +250,23 @@ total_revenues<-magic_result_as_dataframe()
 total_revenues$total<-rowSums(total_revenues[2:7])
 write.csv(total_revenues, "intermediate-outputs/total_revenues.csv",row.names=F)
 
-#Indexing to 2008
+#Inflation Adjustment####
+total_revenues<-merge(inflation,total_revenues,by=c("year"))
+total_revenues$inflation<-total_revenues$inflation/100
+
+total_revenues$individual_1100<-total_revenues$individual_1100/total_revenues$inflation
+total_revenues$corporate_1200<-total_revenues$corporate_1200/total_revenues$inflation
+total_revenues$social_2000<-total_revenues$social_2000/total_revenues$inflation
+total_revenues$property_4000<-total_revenues$property_4000/total_revenues$inflation
+total_revenues$consumption_5000<-total_revenues$consumption_5000/total_revenues$inflation
+total_revenues$other<-total_revenues$other/total_revenues$inflation
+total_revenues$total<-total_revenues$total/total_revenues$inflation
+
+
+
+
+
+#Indexing to 2008####
 total_revenues$ind_2008<-total_revenues$individual_1100[total_revenues$year==2008]
 total_revenues$corp_2008<-total_revenues$corporate_1200[total_revenues$year==2008]
 total_revenues$soc_2008<-total_revenues$social_2000[total_revenues$year==2008]
