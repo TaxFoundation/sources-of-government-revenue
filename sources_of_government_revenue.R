@@ -236,7 +236,7 @@ oecd_averages$average_oecd <- round(oecd_averages$average_oecd, digits = 1)
 colnames(oecd_averages)[colnames(oecd_averages)=="tax_categories"] <- "Tax Category"
 colnames(oecd_averages)[colnames(oecd_averages)=="average_oecd"] <- "Average Share"
 
-write.csv(oecd_averages, "final-outputs/oecd_averages.csv")
+write.csv(oecd_averages, "final-outputs/oecd_averages.csv", row.names = FALSE)
 
 
 
@@ -818,6 +818,9 @@ oecd_data_2018_long <- subset(oecd_data_2018_long, select = -c(share.1300, share
 
 oecd_data_2018_long$Other <- other_long$sum
 
+oecd_data_2018_long <- merge(oecd_data_2018_long, country_names, by='country')
+oecd_data_2018_long <- subset(oecd_data_2018_long, select = -c(continent))
+
 colnames(oecd_data_2018_long)[colnames(oecd_data_2018_long)=="country"] <- "Country"
 colnames(oecd_data_2018_long)[colnames(oecd_data_2018_long)=="share.1100"] <- "Individual Taxes"
 colnames(oecd_data_2018_long)[colnames(oecd_data_2018_long)=="share.1200"] <- "Corporate Taxes"
@@ -826,6 +829,7 @@ colnames(oecd_data_2018_long)[colnames(oecd_data_2018_long)=="share.4000"] <- "P
 colnames(oecd_data_2018_long)[colnames(oecd_data_2018_long)=="share.5000"] <- "Consumption Taxes"
 
 oecd_data_2018_long[,c('Individual Taxes', 'Corporate Taxes', 'Social Insurance Taxes', 'Property Taxes', 'Consumption Taxes', 'Other')] <- round(oecd_data_2018_long[,c('Individual Taxes', 'Corporate Taxes', 'Social Insurance Taxes', 'Property Taxes', 'Consumption Taxes', 'Other')], digits = 1)
+oecd_data_2018_long <- oecd_data_2018_long[c("iso_2", "iso_3", "Country", "Individual Taxes", "Corporate Taxes", "Social Insurance Taxes", "Property Taxes", "Consumption Taxes", "Other")]
 
-write.csv(oecd_data_2018_long, "final-outputs/oecd_by_country.csv")
 
+write.csv(oecd_data_2018_long, "final-outputs/oecd_by_country.csv", row.names = FALSE)
