@@ -1,6 +1,6 @@
-###Sources of Government Revenue###
+####Sources of Government Revenue####
 
-#Clear working environment####
+#Clear working environment#####
 rm(list=ls())
 gc()
 
@@ -44,31 +44,33 @@ using(naniar)
 
 
 
-#Reading in and cleaning OECD's global tax revenue statistics dataset###
+#Reading in and cleaning OECD's global tax revenue statistics dataset####
 dataset_list <- get_datasets()
 search_dataset("Global Revenue", data= dataset_list)
 
 dataset <- ("RS_GBL")
 
-#dstruc <- get_data_structure(dataset)
-#str(dstruc, max.level = 1)
+dstruc <- get_data_structure(dataset)
+str(dstruc, max.level = 1)
 #dstruc$VAR
 #dstruc$TAX
 #dstruc$GOV
 #dstruc$YEA
+taxes<-c("1100","1200","1300","2000","3000","4000","5000","6000","CUS")
 
-all_data <- get_dataset("RS_GBL", start_time = 2017)
+all_data <- get_dataset("RS_GBL", filter= list(c(),c("NES"),c(taxes),c("TAXPER")),start_time = 2017)
 
-all_data_1990 <- get_dataset("RS_GBL", start_time = 1990, end_time = 1990)
+all_data_1990 <- get_dataset("RS_GBL", filter= list(c(),c("NES"),c(taxes),c("TAXPER")),start_time = 1990, end_time = 1990)
 
-all_data <- rbind(all_data, all_data_1990)
+
+
 
 #Only keep data that shows tax revenue as a share of total revenue (drop other indicators)
-all_data <- subset(all_data, all_data$VAR == "TAXPER")
-all_data <- subset(all_data, all_data$GOV == "NES")
+#all_data <- subset(all_data, all_data$VAR == "TAXPER")
+#all_data <- subset(all_data, all_data$GOV == "NES")
 
 #Only keep the tax revenue categories used in the publication (drop the remaining ones)
-all_data <- subset(all_data, subset = TAX == "1100" | TAX == "1200" | TAX == "1300" | TAX == "2000" | TAX == "3000" | TAX == "4000" | TAX == "5000" | TAX == "6000" | TAX == "CUS")
+#all_data <- subset(all_data, subset = TAX == "1100" | TAX == "1200" | TAX == "1300" | TAX == "2000" | TAX == "3000" | TAX == "4000" | TAX == "5000" | TAX == "6000" | TAX == "CUS")
 
 #Drop redundant columns
 all_data <- subset(all_data, select=-c(TIME_FORMAT, GOV, VAR))
@@ -81,7 +83,7 @@ colnames(all_data)[colnames(all_data)=="obsValue"] <- "share"
 
 
 
-#Import and match country names with ISO-3 codes###
+#Import and match country names with ISO-3 codes####
 
 #Read in country name file
 country_names <- read.csv("source-data/country_codes.csv")
@@ -98,7 +100,7 @@ colnames(country_names)[colnames(country_names)=="Continent"] <- "continent"
 country_names$continent <- as.character(country_names$continent)
 country_names$continent <- if_else(is.na(country_names$continent),"NO",country_names$continent)
 
-#Add country names and continents to all_data, and add variable signaling OECD countries###
+#Add country names and continents to all_data, and add variable signaling OECD countries####
 all_data <- merge(all_data, country_names, by='iso_3')
 
 all_data$oecd <- ifelse(all_data$iso_3 == "AUS"
@@ -150,7 +152,7 @@ write.csv(all_data, "intermediate-outputs/data_preliminary.csv")
 
 
 
-#Fix countries for which 2018 data is not available (unless otherwise noted, 2017 data is used for these cases)###
+#Fix countries for which 2018 data is not available (unless otherwise noted, 2017 data is used for these cases)####
 
 #Greece: Greece doesn't have data for the categories 1100, 1200, and 1300 (only for 1000); so we take the average share of these categories of the three years prior (2015-2017) to weigh the current year
 missing_greece <- data.frame(iso_2 = c("GR", "GR", "GR"), iso_3 = c("GRC","GRC", "GRC"), country = c("Greece","Greece", "Greece"), continent = c("EU", "EU", "EU"), oecd = c(1, 1, 1), year = c(2018, 2018, 2018), category = c(1100, 1200, 1300), share = c(15.58660311, 5.765385917, 1.666333732))
@@ -178,7 +180,7 @@ all_data <- all_data[order(all_data$country, all_data$category, all_data$year),]
 
 
 
-#Calculate average OECD tax revenue sources###
+#Calculate average OECD tax revenue sources####
 
 #Limit data to OECD countries and 2018
 oecd_data_2018 <- all_data
@@ -229,6 +231,9 @@ other_mean <- mean(other_long$sum, na.rm = TRUE)
 tax_categories <- c("Individual Taxes","Corporate Taxes","Social Insurance Taxes","Property Taxes","Consumption Taxes","Other")
 average_oecd <- c(individual_1100_mean, corporate_1200_mean, social_2000_mean, property_4000_mean, consumption_5000_mean, other_mean)
 
+columns<-c("year","iso_2","iso_3","Country","Individual Taxes","Corporate Taxes",
+          "Social Insurance Taxes","Property Taxes","Consumption Taxes","Other")
+
 oecd_averages <- data.frame(tax_categories, average_oecd)
 
 oecd_averages$average_oecd <- round(oecd_averages$average_oecd, digits = 1)
@@ -240,7 +245,7 @@ write.csv(oecd_averages, "final-outputs/oecd_averages.csv", row.names = FALSE)
 
 
 
-#Graph comparing OECD tax revenue shares in 1990 with 2018###
+#Graph comparing OECD tax revenue shares in 1990 with 2018####
 
 #Limit data to OECD countries and 1990
 oecd_data_1990 <- all_data
@@ -306,7 +311,7 @@ write.csv(oecd_averages_90, "final-outputs/oecd_averages_1990.csv")
 
 
 
-#Selected country comparison: Austria###
+#Selected country comparison: Austria####
 aut_data_2018 <- all_data
 aut_data_2018 <- subset(aut_data_2018, subset = iso_3 == "AUT")
 aut_data_2018 <- subset(aut_data_2018, subset = year == "2018")
@@ -341,7 +346,7 @@ write.csv(aut_oecd_averages, "final-outputs/aut_oecd_averages.csv")
 
 
 
-#Selected country comparison: Greece###
+#Selected country comparison: Greece####
 grc_data_2018 <- all_data
 grc_data_2018 <- subset(grc_data_2018, subset = iso_3 == "GRC")
 grc_data_2018 <- subset(grc_data_2018, subset = year == "2018")
@@ -376,7 +381,7 @@ write.csv(grc_oecd_averages, "final-outputs/grc_oecd_averages.csv")
 
 
 
-#Selected country comparison: United Kingdom###
+#Selected country comparison: United Kingdom####
 gbr_data_2018 <- all_data
 gbr_data_2018 <- subset(gbr_data_2018, subset = iso_3 == "GBR")
 gbr_data_2018 <- subset(gbr_data_2018, subset = year == "2018")
@@ -411,7 +416,7 @@ write.csv(gbr_oecd_averages, "final-outputs/gbr_oecd_averages.csv")
 
 
 
-#Graph comparing tax revenue shares by region###
+#Graph comparing tax revenue shares by region####
 
 #Get non-OECD data for 2017 (2018 data not available for non-OECD countries as of February 2020)
 non_oecd_data <- subset(all_data, subset = oecd == 0)
@@ -805,7 +810,7 @@ write.csv(regional_averages, "final-outputs/regional_averages.csv")
 
 
 
-#Create table showing tax revenue shares for each OECD country###
+#Create table showing tax revenue shares for each OECD country####
 
 oecd_data_2018_long <- subset(oecd_data_2018, select = -c(continent, oecd, year, iso_2, iso_3))
 
@@ -830,6 +835,14 @@ colnames(oecd_data_2018_long)[colnames(oecd_data_2018_long)=="share.5000"] <- "C
 
 oecd_data_2018_long[,c('Individual Taxes', 'Corporate Taxes', 'Social Insurance Taxes', 'Property Taxes', 'Consumption Taxes', 'Other')] <- round(oecd_data_2018_long[,c('Individual Taxes', 'Corporate Taxes', 'Social Insurance Taxes', 'Property Taxes', 'Consumption Taxes', 'Other')], digits = 1)
 oecd_data_2018_long <- oecd_data_2018_long[c("iso_2", "iso_3", "Country", "Individual Taxes", "Corporate Taxes", "Social Insurance Taxes", "Property Taxes", "Consumption Taxes", "Other")]
+
+
+#Add OECD Average to table
+oecd_average<-c("NA","NA","OECD Average",round(individual_1100_mean, digits = 1)
+                , round(corporate_1200_mean, digits = 1), round(social_2000_mean, digits = 1)
+                , round(property_4000_mean, digits = 1), round(consumption_5000_mean, digits = 1), 
+                round(other_mean, digits = 1))
+oecd_data_2018_long<-rbind(oecd_data_2018_long,oecd_average)
 
 
 write.csv(oecd_data_2018_long, "final-outputs/oecd_by_country.csv", row.names = FALSE)
