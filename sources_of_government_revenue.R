@@ -65,6 +65,7 @@ all_data_1990 <- subset(all_data_1990, select=-c(UNIT, POWERCODE))
 #Combine OECD data for 1990 with 2018 and 2019 in one dataset called all_data###
 all_data <- rbind (all_data_OECD, all_data_1990)
 
+
 #Drop redundant columns
 all_data <- subset(all_data, select=-c(TIME_FORMAT, GOV, VAR))
 
@@ -73,7 +74,6 @@ colnames(all_data)[colnames(all_data)=="COU"] <- "iso_3"
 colnames(all_data)[colnames(all_data)=="TAX"] <- "category"
 colnames(all_data)[colnames(all_data)=="obsTime"] <- "year"
 colnames(all_data)[colnames(all_data)=="obsValue"] <- "share"
-
 
 #Import and match country names with ISO-3 codes####
 
@@ -186,6 +186,7 @@ oecd_data_2019 <- all_data
 oecd_data_2019 <- subset(oecd_data_2019, subset = year == 2019)
 oecd_data_2019 <- subset(oecd_data_2019, subset = oecd == 1)
 
+
 #Calculate averages for 1100 (individual taxes)
 individual_1100 <- subset(oecd_data_2019, category==1100)
 individual_1100_mean <- mean(individual_1100$share, na.rm = TRUE)
@@ -244,6 +245,7 @@ write.csv(oecd_averages, "final-outputs/oecd_averages.csv", row.names = FALSE)
 
 
 #Graph comparing OECD tax revenue shares in 1990 with 2019####
+
 
 #Limit data to OECD countries and 1990
 oecd_data_1990 <- all_data
@@ -316,6 +318,7 @@ oecd_data_2019_long <- reshape(oecd_data_2019_long,
                                idvar = c("country"),
                                direction = "wide")
 
+
 oecd_data_2019_long <- subset(oecd_data_2019_long, select = -c(share.1300, share.3000, share.6000))
 
 oecd_data_2019_long$Other <- other_long$sum
@@ -343,6 +346,7 @@ oecd_data_2019_long<-rbind(oecd_data_2019_long,oecd_average)
 
 
 write.csv(oecd_data_2019_long, "final-outputs/oecd_by_country.csv", row.names = FALSE)
+
 
 
 #Graph comparing tax revenue shares by region####
@@ -428,6 +432,7 @@ all_data_NON_OECD[all_data_NON_OECD$iso_3 == "CIV", "country"] <- "Cote d'Ivoire
 non_oecd_data <- subset(all_data_NON_OECD, subset = oecd == 0)
 
 write.csv(non_oecd_data, "intermediate-outputs/non_oecd_data_preliminary.csv")
+
 
 
 #Fix non-OECD countries for which some 2018 data is missing
@@ -809,6 +814,7 @@ lev_OECD <- get_dataset("REV", filter= list(c(levgov),c("TOTALTAX"),c("TAXLOG"))
 #Drop redundant columns
 lev_OECD <- subset(lev_OECD, select=-c(UNIT,POWERCODE,TAX,TIME_FORMAT,VAR))
 
+
 #Rename columns
 colnames(lev_OECD)[colnames(lev_OECD)=="COU"] <- "iso_3"
 colnames(lev_OECD)[colnames(lev_OECD)=="GOV"] <- "government"
@@ -917,4 +923,3 @@ lev_gov_average<-c("NA","NA","Average", round (lev_FED_mean, digits = 1), round 
 lev_OECD_long<-rbind(lev_OECD_long,lev_gov_average)
 
 write.csv(lev_OECD_long, "final-outputs/level_of_government_oecd.csv", row.names = FALSE)
-
