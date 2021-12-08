@@ -439,7 +439,7 @@ non_oecd_data <- subset(all_data_NON_OECD, subset = oecd == 0)
 
 write.csv(non_oecd_data, "intermediate-outputs/non_oecd_data_preliminary.csv")
 
-
+#NOTHING BELOW THIS LINE WAS UPDATED WHEN 2020 DATA WAS ADDED###
 
 #Fix non-OECD countries for which some 2018 data is missing
 
@@ -804,15 +804,15 @@ write.csv(regional_averages, "final-outputs/regional_averages.csv")
 
 
 #Reading in and cleaning OECD's Revenue Statistics - OECD countries by level of government####
-dataset_list <- get_datasets()
-search_dataset("Revenue Statistics - OECD countries: Comparative tables", data= dataset_list)
+#dataset_list <- get_datasets()
+#search_dataset("Revenue Statistics - OECD countries: Comparative tables", data= dataset_list)
 dataset <- ("REV")
-dstruc <- get_data_structure(dataset)
-str(dstruc, max.level = 1)
-dstruc$VAR
-dstruc$TAX
-dstruc$GOV
-dstruc$YEA
+#dstruc <- get_data_structure(dataset)
+#str(dstruc, max.level = 1)
+#dstruc$VAR
+#dstruc$TAX
+#dstruc$GOV
+#dstruc$YEA
 
 levgov<-c("SUPRA","FED","STATE","LOCAL","SOCSEC","NES")
 lev_OECD <- get_dataset("REV", filter= list(c(levgov),c("TOTALTAX"),c("TAXLOG")),start_time = 2018)
