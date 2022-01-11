@@ -49,6 +49,8 @@ oecd_countries<-c("AUS",
                   "BEL",
                   "CAN",
                   "CHL",
+                  "COL",
+                  "CRI",
                   "CZE",
                   "DNK",
                   "EST",
@@ -85,21 +87,20 @@ oecd_countries<-c("AUS",
 #dataset_list <- get_datasets()
 #search_dataset("Global Revenue", data= dataset_list)
 
-dataset <- ("RS_GBL")
+dataset <- ("REV")
 
-#dstruc <- get_data_structure(dataset)
-#str(dstruc, max.level = 1)
+dstruc <- get_data_structure(dataset)
+str(dstruc, max.level = 1)
 #dstruc$GOV
 #dstruc$TAX
 #dstruc$VAR
 #dstruc$YEA
 
-all_data <- get_dataset("RS_GBL",filter=list(c(oecd_countries),c("NES"),
-                                             c("1100","1200","1300","2000","3000","4000","5000","6000",
-                                               "CUS"),c("TAXUSD")), start_time = 2008, end_time = 2017)
+all_data <- get_dataset("REV",filter=list(c("NES"),c("1100","1200","1300","2000","3000","4000","5000","6000",
+                                                     "CUS"),c("TAXUSD"),c(oecd_countries)), start_time = 2008)
 
 #Drop redundant columns
-all_data <- subset(all_data, select=-c(TIME_FORMAT, GOV, VAR))
+all_data <- subset(all_data, select=-c(TIME_FORMAT, GOV, VAR, UNIT, POWERCODE))
 
 #Rename columns
 colnames(all_data)[colnames(all_data)=="COU"] <- "iso_3"
@@ -130,42 +131,44 @@ country_names$continent <- if_else(is.na(country_names$continent),"NO",country_n
 all_data <- merge(all_data, country_names, by='iso_3')
 
 all_data$oecd <- ifelse(all_data$iso_3 == "AUS"
-                                       | all_data$iso_3 == "AUT"
-                                       | all_data$iso_3 == "BEL"
-                                       | all_data$iso_3 == "CAN"
-                                       | all_data$iso_3 == "CHL"
-                                       | all_data$iso_3 == "CZE"
-                                       | all_data$iso_3 == "DNK"
-                                       | all_data$iso_3 == "EST"
-                                       | all_data$iso_3 == "FIN"
-                                       | all_data$iso_3 == "FRA"
-                                       | all_data$iso_3 == "DEU"
-                                       | all_data$iso_3 == "GRC"
-                                       | all_data$iso_3 == "HUN"
-                                       | all_data$iso_3 == "ISL"
-                                       | all_data$iso_3 == "IRL"
-                                       | all_data$iso_3 == "ISR"
-                                       | all_data$iso_3 == "ITA"
-                                       | all_data$iso_3 == "JPN"
-                                       | all_data$iso_3 == "KOR"
-                                       | all_data$iso_3 == "LTU"
-                                       | all_data$iso_3 == "LUX"
-                                       | all_data$iso_3 == "LVA"
-                                       | all_data$iso_3 == "MEX"
-                                       | all_data$iso_3 == "NLD"
-                                       | all_data$iso_3 == "NZL"
-                                       | all_data$iso_3 == "NOR"
-                                       | all_data$iso_3 == "POL"
-                                       | all_data$iso_3 == "PRT"
-                                       | all_data$iso_3 == "SVK"
-                                       | all_data$iso_3 == "SVN"
-                                       | all_data$iso_3 == "ESP"
-                                       | all_data$iso_3 == "SWE"
-                                       | all_data$iso_3 == "CHE"
-                                       | all_data$iso_3 == "TUR"
-                                       | all_data$iso_3 == "GBR"
-                                       | all_data$iso_3 == "USA"
-                                       ,1,0)
+                        | all_data$iso_3 == "AUT"
+                        | all_data$iso_3 == "BEL"
+                        | all_data$iso_3 == "CAN"
+                        | all_data$iso_3 == "CHL"
+                        | all_data$iso_3 == "COL"
+                        | all_data$iso_3 == "CRI"
+                        | all_data$iso_3 == "CZE"
+                        | all_data$iso_3 == "DNK"
+                        | all_data$iso_3 == "EST"
+                        | all_data$iso_3 == "FIN"
+                        | all_data$iso_3 == "FRA"
+                        | all_data$iso_3 == "DEU"
+                        | all_data$iso_3 == "GRC"
+                        | all_data$iso_3 == "HUN"
+                        | all_data$iso_3 == "ISL"
+                        | all_data$iso_3 == "IRL"
+                        | all_data$iso_3 == "ISR"
+                        | all_data$iso_3 == "ITA"
+                        | all_data$iso_3 == "JPN"
+                        | all_data$iso_3 == "KOR"
+                        | all_data$iso_3 == "LTU"
+                        | all_data$iso_3 == "LUX"
+                        | all_data$iso_3 == "LVA"
+                        | all_data$iso_3 == "MEX"
+                        | all_data$iso_3 == "NLD"
+                        | all_data$iso_3 == "NZL"
+                        | all_data$iso_3 == "NOR"
+                        | all_data$iso_3 == "POL"
+                        | all_data$iso_3 == "PRT"
+                        | all_data$iso_3 == "SVK"
+                        | all_data$iso_3 == "SVN"
+                        | all_data$iso_3 == "ESP"
+                        | all_data$iso_3 == "SWE"
+                        | all_data$iso_3 == "CHE"
+                        | all_data$iso_3 == "TUR"
+                        | all_data$iso_3 == "GBR"
+                        | all_data$iso_3 == "USA"
+                        ,1,0)
 
 #Adjust the order of the columns
 all_data <- all_data[c("iso_2", "iso_3", "country", "continent", "oecd", "year", "category", "value")]
@@ -174,13 +177,13 @@ write.csv(all_data, "intermediate-outputs/data_preliminary.csv",row.names=F)
 
 #Inflation data####
 
-dataset_list <- get_datasets()
-search_dataset("price", data= dataset_list)
+#dataset_list <- get_datasets()
+#search_dataset("price", data= dataset_list)
 
 dataset <- ("PRICES_CPI")
 
-dstruc <- get_data_structure(dataset)
-str(dstruc, max.level = 1)
+#dstruc <- get_data_structure(dataset)
+#str(dstruc, max.level = 1)
 #List of 11
 #$ VAR_DESC       :'data.frame':	11 obs. of  2 variables:
 #  $ LOCATION       :'data.frame':	53 obs. of  2 variables:
@@ -205,7 +208,7 @@ str(dstruc, max.level = 1)
 
 inflation <- get_dataset("PRICES_CPI",filter=list(c("OECD"),c("CPALTT01"),
                                                   c("IXOB"),c("A")),
-                         start_time = 2008, end_time = 2017)
+                         start_time = 2008)
 inflation<- subset(inflation, select=c(obsTime, obsValue))
 
 colnames(inflation)<-c("year","inflation")
@@ -287,4 +290,3 @@ total_revenues$total2<-total_revenues$total/total_revenues$total_2008
 index<- subset(total_revenues, select=c(year, individual, corporate,social,property,consumption,other,total2))
 
 write.csv(index, "intermediate-outputs/index.csv",row.names=F)
-
