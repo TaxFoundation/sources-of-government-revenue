@@ -89,8 +89,8 @@ oecd_countries<-c("AUS",
 
 dataset <- ("REV")
 
-dstruc <- get_data_structure(dataset)
-str(dstruc, max.level = 1)
+#dstruc <- get_data_structure(dataset)
+#str(dstruc, max.level = 1)
 #dstruc$GOV
 #dstruc$TAX
 #dstruc$VAR
@@ -213,6 +213,12 @@ inflation<- subset(inflation, select=c(obsTime, obsValue))
 
 colnames(inflation)<-c("year","inflation")
 
+#remove Australia and Japan due to missing 2020 data
+all_data<-subset(all_data,country!="Australia")
+all_data<-subset(all_data,country!="Japan")
+
+
+
 #Calculate average OECD tax revenue sources####
 
 #Categories
@@ -287,6 +293,28 @@ total_revenues$other<-total_revenues$other/total_revenues$oth_2008
 total_revenues$total2<-total_revenues$total/total_revenues$total_2008
 
 
-index<- subset(total_revenues, select=c(year, individual, corporate,social,property,consumption,other,total2))
+index_2008<- subset(total_revenues, select=c(year, individual, corporate,social,property,consumption,other,total2))
 
-write.csv(index, "intermediate-outputs/index.csv",row.names=F)
+write.csv(index_2008, "intermediate-outputs/index_2008.csv",row.names=F)
+
+#Indexing to 2019####
+total_revenues$ind_2019<-total_revenues$individual_1100[total_revenues$year==2019]
+total_revenues$corp_2019<-total_revenues$corporate_1200[total_revenues$year==2019]
+total_revenues$soc_2019<-total_revenues$social_2000[total_revenues$year==2019]
+total_revenues$prop_2019<-total_revenues$property_4000[total_revenues$year==2019]
+total_revenues$con_2019<-total_revenues$consumption_5000[total_revenues$year==2019]
+total_revenues$oth_2019<-total_revenues$other[total_revenues$year==2019]
+total_revenues$total_2019<-total_revenues$total[total_revenues$year==2019]
+
+total_revenues$individual<-total_revenues$individual_1100/total_revenues$ind_2019
+total_revenues$corporate<-total_revenues$corporate_1200/total_revenues$corp_2019
+total_revenues$social<-total_revenues$social_2000/total_revenues$soc_2019
+total_revenues$property<-total_revenues$property_4000/total_revenues$prop_2019
+total_revenues$consumption<-total_revenues$consumption_5000/total_revenues$con_2019
+total_revenues$other<-total_revenues$other/total_revenues$oth_2019
+total_revenues$total2<-total_revenues$total/total_revenues$total_2019
+
+
+index_2019<- subset(total_revenues, select=c(year, individual, corporate,social,property,consumption,other,total2))
+
+write.csv(index_2019, "intermediate-outputs/index_2019.csv",row.names=F)
