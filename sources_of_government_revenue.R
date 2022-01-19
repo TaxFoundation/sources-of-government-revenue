@@ -46,16 +46,16 @@ using(naniar)
 
 #Reading in and cleaning OECD's Revenue Statistics - OECD countries comparative tables dataset since 2019 data is not available in the OECD's Global Revenue Statistics dataset (as of February 2021)####
 dataset_list <- get_datasets()
-search_dataset("Revenue Statistics - OECD countries: Comparative tables", data= dataset_list)
-dataset <- ("REV")
-dstruc <- get_data_structure(dataset)
-str(dstruc, max.level = 1)
-dstruc$VAR
-dstruc$TAX
-dstruc$GOV
-dstruc$YEA
+#search_dataset("Revenue Statistics - OECD countries: Comparative tables", data= dataset_list)
+#dataset <- ("REV")
+#dstruc <- get_data_structure(dataset)
+#str(dstruc, max.level = 1)
+#dstruc$VAR
+#dstruc$TAX
+#dstruc$GOV
+#dstruc$YEA
 taxes<-c("1100","1200","1300","2000","3000","4000","5000","6000")
-all_data_OECD <- get_dataset("REV", filter= list(c("NES"),c(taxes),c("TAXPER")),start_time = 2018)
+all_data_OECD <- get_dataset("REV", filter= list(c("NES"),c(taxes),c("TAXPER")),start_time = 2017)
 all_data_1990 <- get_dataset("REV", filter= list(c("NES"),c(taxes),c("TAXPER")),start_time = 1990, end_time = 1990)
 
 #Drop redundant columns
@@ -96,43 +96,44 @@ country_names$continent <- if_else(is.na(country_names$continent),"NO",country_n
 all_data <- merge(all_data, country_names, by='iso_3')
 
 all_data$oecd <- ifelse(all_data$iso_3 == "AUS"
-                                       | all_data$iso_3 == "AUT"
-                                       | all_data$iso_3 == "BEL"
-                                       | all_data$iso_3 == "CAN"
-                                       | all_data$iso_3 == "CHL"
-                                        |all_data$iso_3 == "COL"
-                                       | all_data$iso_3 == "CZE"
-                                       | all_data$iso_3 == "DNK"
-                                       | all_data$iso_3 == "EST"
-                                       | all_data$iso_3 == "FIN"
-                                       | all_data$iso_3 == "FRA"
-                                       | all_data$iso_3 == "DEU"
-                                       | all_data$iso_3 == "GRC"
-                                       | all_data$iso_3 == "HUN"
-                                       | all_data$iso_3 == "ISL"
-                                       | all_data$iso_3 == "IRL"
-                                       | all_data$iso_3 == "ISR"
-                                       | all_data$iso_3 == "ITA"
-                                       | all_data$iso_3 == "JPN"
-                                       | all_data$iso_3 == "KOR"
-                                       | all_data$iso_3 == "LTU"
-                                       | all_data$iso_3 == "LUX"
-                                       | all_data$iso_3 == "LVA"
-                                       | all_data$iso_3 == "MEX"
-                                       | all_data$iso_3 == "NLD"
-                                       | all_data$iso_3 == "NZL"
-                                       | all_data$iso_3 == "NOR"
-                                       | all_data$iso_3 == "POL"
-                                       | all_data$iso_3 == "PRT"
-                                       | all_data$iso_3 == "SVK"
-                                       | all_data$iso_3 == "SVN"
-                                       | all_data$iso_3 == "ESP"
-                                       | all_data$iso_3 == "SWE"
-                                       | all_data$iso_3 == "CHE"
-                                       | all_data$iso_3 == "TUR"
-                                       | all_data$iso_3 == "GBR"
-                                       | all_data$iso_3 == "USA"
-                                       ,1,0)
+                        | all_data$iso_3 == "AUT"
+                        | all_data$iso_3 == "BEL"
+                        | all_data$iso_3 == "CAN"
+                        | all_data$iso_3 == "CHL"
+                        | all_data$iso_3 == "COL"
+                        | all_data$iso_3 == "CRI"
+                        | all_data$iso_3 == "CZE"
+                        | all_data$iso_3 == "DNK"
+                        | all_data$iso_3 == "EST"
+                        | all_data$iso_3 == "FIN"
+                        | all_data$iso_3 == "FRA"
+                        | all_data$iso_3 == "DEU"
+                        | all_data$iso_3 == "GRC"
+                        | all_data$iso_3 == "HUN"
+                        | all_data$iso_3 == "ISL"
+                        | all_data$iso_3 == "IRL"
+                        | all_data$iso_3 == "ISR"
+                        | all_data$iso_3 == "ITA"
+                        | all_data$iso_3 == "JPN"
+                        | all_data$iso_3 == "KOR"
+                        | all_data$iso_3 == "LTU"
+                        | all_data$iso_3 == "LUX"
+                        | all_data$iso_3 == "LVA"
+                        | all_data$iso_3 == "MEX"
+                        | all_data$iso_3 == "NLD"
+                        | all_data$iso_3 == "NZL"
+                        | all_data$iso_3 == "NOR"
+                        | all_data$iso_3 == "POL"
+                        | all_data$iso_3 == "PRT"
+                        | all_data$iso_3 == "SVK"
+                        | all_data$iso_3 == "SVN"
+                        | all_data$iso_3 == "ESP"
+                        | all_data$iso_3 == "SWE"
+                        | all_data$iso_3 == "CHE"
+                        | all_data$iso_3 == "TUR"
+                        | all_data$iso_3 == "GBR"
+                        | all_data$iso_3 == "USA"
+                        ,1,0)
 
 #Adjust the order of the columns
 all_data <- all_data[c("iso_2", "iso_3", "country", "continent", "oecd", "year", "category", "share")]
@@ -142,38 +143,42 @@ write.csv(all_data, "intermediate-outputs/oecd_data_preliminary.csv")
 
 
 
-#Fix countries for which 2019 data is not available (unless otherwise noted, 2018 data is used for these cases)####
+#Fix countries for which 2020 data is not available (unless otherwise noted, 2018 data is used for these cases)####
 
-#Greece: Greece doesn't have data for the categories 1100, 1200, and 1300 (only for 1000); so we take the average share of these categories of the three years prior (2016-2018) to weigh the current year
-missing_greece <- data.frame(iso_2 = c("GR", "GR", "GR"), iso_3 = c("GRC","GRC", "GRC"), country = c("Greece","Greece", "Greece"), continent = c("EU", "EU", "EU"), oecd = c(1, 1, 1), year = c(2019, 2019, 2019), category = c(1100, 1200, 1300), share = c(14.976108977859, 5.38929911485138, 1.18927826140175))
+#Greece: Greece doesn't have data for the categories 1100, 1200, and 1300 (only for 1000); so we take the average share of these categories of the three years prior (2017-2019) to weigh the current year
+missing_greece <- data.frame(iso_2 = c("GR", "GR", "GR"), iso_3 = c("GRC","GRC", "GRC"), country = c("Greece","Greece", "Greece"), continent = c("EU", "EU", "EU"), oecd = c(1, 1, 1), year = c(2020, 2020, 2020), category = c(1100, 1200, 1300), share = c(15.796, 5.41, 1.103))
 
-# Sweden: change the data in "categorry== 6000" (other taxes) to 100% - (1100+1200+1300+2000+4000+5000) since the sum of all categories is not 100%
-missing_sweden <- data.frame(iso_2 = c("SE", "SE", "SE"), iso_3 = c("SWE","SWE", "SWE"), country = c("Sweden","Sweden", "Sweden"), continent = c("EU", "EU", "EU"), oecd = c(1, 1, 1), year = c(1990, 2018, 2019), category = c(6000, 6000, 6000), share = c(0.576, 0.398, 0.396))
+#New Zealand: New Zealand doesn't have data for the categories 1100, 1200, and 1300 (only for 1000); so we take the average share of these categories of the three years prior (2017-2019) to weigh the current year
+missing_new_zealand <- data.frame(iso_2 = c("NZ", "NZ", "NZ"), iso_3 = c("NZL","NZL", "NZL"), country = c("New Zealand","New Zealand", "New Zealand"), continent = c("OC", "OC", "OC"), oecd = c(1, 1, 1), year = c(2020, 2020, 2020), category = c(1100, 1200, 1300), share = c(38.287, 14.214, 3.071))
 
-#Australia: 2019 data not available -> use 2018 data
+
+#Australia: 2020 data not available -> use 2019 data
 missing_australia <- all_data
-missing_australia <- subset(missing_australia, subset = iso_3 == "AUS" & year == "2018")
-missing_australia[missing_australia$year == 2018, "year"] <- 2019
+missing_australia <- subset(missing_australia, subset = iso_3 == "AUS" & year == "2019")
+missing_australia[missing_australia$year == 2019, "year"] <- 2020
 
-#Japan: 2019 data not available -> use 2018 data
+#Japan: 2020 data not available -> use 2019 data
 missing_japan <- all_data
-missing_japan <- subset(missing_japan, subset = iso_3 == "JPN" & year == "2018")
-missing_japan[missing_japan$year == 2018, "year"] <- 2019
+missing_japan <- subset(missing_japan, subset = iso_3 == "JPN" & year == "2019")
+missing_japan[missing_japan$year == 2019, "year"] <- 2020
 
-#Mexico: 2019 data not available -> use 2018 data
+#Mexico: 2020 data not available -> use 2019 data
 missing_mexico <- all_data
-missing_mexico <- subset(missing_mexico, subset = iso_3 == "MEX" & year == "2018")
-missing_mexico[missing_mexico$year == 2018, "year"] <- 2019
+missing_mexico <- subset(missing_mexico, subset = iso_3 == "MEX" & year == "2019")
+missing_mexico[missing_mexico$year == 2019, "year"] <- 2020
 
 
 #Delete from the dataset the data for Greece and Sweden for the catagories that were recalculated
-all_data <- subset(all_data, !(iso_3 == "GRC" & year == "2019" & category == 1100),)
-all_data <- subset(all_data, !(iso_3 == "GRC" & year == "2019" & category == 1200),)
-all_data <- subset(all_data, !(iso_3 == "GRC" & year == "2019" & category == 1300),)
-all_data <- subset(all_data, !(iso_3 == "SWE" & category == 6000),)
+all_data <- subset(all_data, !(iso_3 == "GRC" & year == "2020" & category == 1100))
+all_data <- subset(all_data, !(iso_3 == "GRC" & year == "2020" & category == 1200))
+all_data <- subset(all_data, !(iso_3 == "GRC" & year == "2020" & category == 1300))
+
+all_data <- subset(all_data, !(iso_3 == "NZL" & year == "2020" & category == 1100))
+all_data <- subset(all_data, !(iso_3 == "NZL" & year == "2020" & category == 1200))
+all_data <- subset(all_data, !(iso_3 == "NZL" & year == "2020" & category == 1300))
 
 #Combine data
-all_data <- rbind(all_data, missing_greece, missing_australia, missing_japan, missing_mexico, missing_sweden)
+all_data <- rbind(all_data, missing_greece, missing_australia, missing_japan, missing_mexico, missing_new_zealand)
 
 #Sort dataset
 all_data <- all_data[order(all_data$country, all_data$category, all_data$year),]
@@ -181,34 +186,34 @@ all_data <- all_data[order(all_data$country, all_data$category, all_data$year),]
 
 #Calculate average OECD tax revenue sources####
 
-#Limit data to OECD countries and 2019
-oecd_data_2019 <- all_data
-oecd_data_2019 <- subset(oecd_data_2019, subset = year == 2019)
-oecd_data_2019 <- subset(oecd_data_2019, subset = oecd == 1)
+#Limit data to OECD countries and 2020
+oecd_data_2020 <- all_data
+oecd_data_2020 <- subset(oecd_data_2020, subset = year == 2020)
+oecd_data_2020 <- subset(oecd_data_2020, subset = oecd == 1)
 
 
 #Calculate averages for 1100 (individual taxes)
-individual_1100 <- subset(oecd_data_2019, category==1100)
+individual_1100 <- subset(oecd_data_2020, category==1100)
 individual_1100_mean <- mean(individual_1100$share, na.rm = TRUE)
 
 #Calculate averages for 1200 (corporate taxes)
-corporate_1200 <- subset(oecd_data_2019, category==1200)
+corporate_1200 <- subset(oecd_data_2020, category==1200)
 corporate_1200_mean <- mean(corporate_1200$share, na.rm = TRUE)
 
 #Calculate averages for 2000 (social insurance taxes)
-social_2000 <- subset(oecd_data_2019, category==2000)
+social_2000 <- subset(oecd_data_2020, category==2000)
 social_2000_mean <- mean(social_2000$share, na.rm = TRUE)
 
 #Calculate averages for 4000 (property taxes)
-property_4000 <- subset(oecd_data_2019, category==4000)
+property_4000 <- subset(oecd_data_2020, category==4000)
 property_4000_mean <- mean(property_4000$share, na.rm = TRUE)
 
 #Calculate averages for 5000 (consumption taxes)
-consumption_5000 <- subset(oecd_data_2019, category==5000)
+consumption_5000 <- subset(oecd_data_2020, category==5000)
 consumption_5000_mean <- mean(consumption_5000$share, na.rm = TRUE)
 
 #Calculate averages for 1300 + 3000 + 6000 (other)
-other <- subset(oecd_data_2019, category == 1300 | category == 3000 | category == 6000)
+other <- subset(oecd_data_2020, category == 1300 | category == 3000 | category == 6000)
 other <- subset(other, select = -c(continent, oecd, year))
 
 other_long <- reshape(other, 
@@ -244,7 +249,7 @@ write.csv(oecd_averages, "final-outputs/oecd_averages.csv", row.names = FALSE)
 
 
 
-#Graph comparing OECD tax revenue shares in 1990 with 2019####
+#Graph comparing OECD tax revenue shares in 1990 with 2020####
 
 
 #Limit data to OECD countries and 1990
@@ -252,8 +257,8 @@ oecd_data_1990 <- all_data
 oecd_data_1990 <- subset(oecd_data_1990, subset = year == 1990)
 oecd_data_1990 <- subset(oecd_data_1990, subset = oecd == 1)
 
-#Drop countries for which 1990 data is available but that were not part of the OECD in 1990 inlcuding Colombia
-oecd_data_1990 <- subset(oecd_data_1990, oecd_data_1990$iso_3 != "CHL" & oecd_data_1990$iso_3 != "KOR" & oecd_data_1990$iso_3 != "MEX" & oecd_data_1990$iso_3 != "COL")
+#Drop countries for which 1990 data is available but that were not part of the OECD in 1990 inlcuding Colombia and Costa Rica
+oecd_data_1990 <- subset(oecd_data_1990, oecd_data_1990$iso_3 != "CHL" & oecd_data_1990$iso_3 != "KOR" & oecd_data_1990$iso_3 != "MEX" & oecd_data_1990$iso_3 != "COL" & oecd_data_1990$iso_3 != "CRI")
                          
 #Calculate averages for 1100 (individual taxes) for 1990 data
 individual_1100_90 <- subset(oecd_data_1990, category==1100)
@@ -303,7 +308,7 @@ oecd_averages_90$average_oecd_90 <- round(oecd_averages_90$average_oecd_90, digi
 oecd_averages_90$average_oecd <- round(oecd_averages_90$average_oecd, digits = 1)
 
 colnames(oecd_averages_90)[colnames(oecd_averages_90)=="tax_categories"] <- "Tax Category"
-colnames(oecd_averages_90)[colnames(oecd_averages_90)=="average_oecd"] <- "Average Share 2019"
+colnames(oecd_averages_90)[colnames(oecd_averages_90)=="average_oecd"] <- "Average Share 2020"
 colnames(oecd_averages_90)[colnames(oecd_averages_90)=="average_oecd_90"] <- "Average Share 1990"
 
 write.csv(oecd_averages_90, "final-outputs/oecd_averages_1990.csv")
@@ -311,30 +316,30 @@ write.csv(oecd_averages_90, "final-outputs/oecd_averages_1990.csv")
 
 #Create table showing tax revenue shares for each OECD country####
 
-oecd_data_2019_long <- subset(oecd_data_2019, select = -c(continent, oecd, year, iso_2, iso_3))
+oecd_data_2020_long <- subset(oecd_data_2020, select = -c(continent, oecd, year, iso_2, iso_3))
 
-oecd_data_2019_long <- reshape(oecd_data_2019_long, 
+oecd_data_2020_long <- reshape(oecd_data_2020_long, 
                                timevar = "category",
                                idvar = c("country"),
                                direction = "wide")
 
 
-oecd_data_2019_long <- subset(oecd_data_2019_long, select = -c(share.1300, share.3000, share.6000))
+oecd_data_2020_long <- subset(oecd_data_2020_long, select = -c(share.1300, share.3000, share.6000))
 
-oecd_data_2019_long$Other <- other_long$sum
+oecd_data_2020_long$Other <- other_long$sum
 
-oecd_data_2019_long <- merge(oecd_data_2019_long, country_names, by='country')
-oecd_data_2019_long <- subset(oecd_data_2019_long, select = -c(continent))
+oecd_data_2020_long <- merge(oecd_data_2020_long, country_names, by='country')
+oecd_data_2020_long <- subset(oecd_data_2020_long, select = -c(continent))
 
-colnames(oecd_data_2019_long)[colnames(oecd_data_2019_long)=="country"] <- "Country"
-colnames(oecd_data_2019_long)[colnames(oecd_data_2019_long)=="share.1100"] <- "Individual Taxes"
-colnames(oecd_data_2019_long)[colnames(oecd_data_2019_long)=="share.1200"] <- "Corporate Taxes"
-colnames(oecd_data_2019_long)[colnames(oecd_data_2019_long)=="share.2000"] <- "Social Insurance Taxes"
-colnames(oecd_data_2019_long)[colnames(oecd_data_2019_long)=="share.4000"] <- "Property Taxes"
-colnames(oecd_data_2019_long)[colnames(oecd_data_2019_long)=="share.5000"] <- "Consumption Taxes"
+colnames(oecd_data_2020_long)[colnames(oecd_data_2020_long)=="country"] <- "Country"
+colnames(oecd_data_2020_long)[colnames(oecd_data_2020_long)=="share.1100"] <- "Individual Taxes"
+colnames(oecd_data_2020_long)[colnames(oecd_data_2020_long)=="share.1200"] <- "Corporate Taxes"
+colnames(oecd_data_2020_long)[colnames(oecd_data_2020_long)=="share.2000"] <- "Social Insurance Taxes"
+colnames(oecd_data_2020_long)[colnames(oecd_data_2020_long)=="share.4000"] <- "Property Taxes"
+colnames(oecd_data_2020_long)[colnames(oecd_data_2020_long)=="share.5000"] <- "Consumption Taxes"
 
-oecd_data_2019_long[,c('Individual Taxes', 'Corporate Taxes', 'Social Insurance Taxes', 'Property Taxes', 'Consumption Taxes', 'Other')] <- round(oecd_data_2019_long[,c('Individual Taxes', 'Corporate Taxes', 'Social Insurance Taxes', 'Property Taxes', 'Consumption Taxes', 'Other')], digits = 1)
-oecd_data_2019_long <- oecd_data_2019_long[c("iso_2", "iso_3", "Country", "Individual Taxes", "Corporate Taxes", "Social Insurance Taxes", "Property Taxes", "Consumption Taxes", "Other")]
+oecd_data_2020_long[,c('Individual Taxes', 'Corporate Taxes', 'Social Insurance Taxes', 'Property Taxes', 'Consumption Taxes', 'Other')] <- round(oecd_data_2020_long[,c('Individual Taxes', 'Corporate Taxes', 'Social Insurance Taxes', 'Property Taxes', 'Consumption Taxes', 'Other')], digits = 1)
+oecd_data_2020_long <- oecd_data_2020_long[c("iso_2", "iso_3", "Country", "Individual Taxes", "Corporate Taxes", "Social Insurance Taxes", "Property Taxes", "Consumption Taxes", "Other")]
 
 
 #Add OECD Average to table
@@ -342,27 +347,27 @@ oecd_average<-c("NA","NA","OECD Average",round(individual_1100_mean, digits = 1)
                 , round(corporate_1200_mean, digits = 1), round(social_2000_mean, digits = 1)
                 , round(property_4000_mean, digits = 1), round(consumption_5000_mean, digits = 1), 
                 round(other_mean, digits = 1))
-oecd_data_2019_long<-rbind(oecd_data_2019_long,oecd_average)
+oecd_data_2020_long<-rbind(oecd_data_2020_long,oecd_average)
 
 
-write.csv(oecd_data_2019_long, "final-outputs/oecd_by_country.csv", row.names = FALSE)
+write.csv(oecd_data_2020_long, "final-outputs/oecd_by_country.csv", row.names = FALSE)
 
 
 
 #Graph comparing tax revenue shares by region####
 
-#Get non-OECD data for 2018 (2019 data not available for non-OECD countries as of February 2021)
+#Get non-OECD data for 2019 (2020 data not available for non-OECD countries as of January 2022)
 
 #Reading in and cleaning OECD's Global Revenue Statistics dataset to get data for NoN-OECD Countries
 
 dataset <- ("RS_GBL")
 
-dstruc <- get_data_structure(dataset)
-str(dstruc, max.level = 1)
-dstruc$VAR
-dstruc$TAX
-dstruc$GOV
-dstruc$YEA
+#dstruc <- get_data_structure(dataset)
+#str(dstruc, max.level = 1)
+#dstruc$VAR
+#dstruc$TAX
+#dstruc$GOV
+#dstruc$YEA
 
 
 all_data_NON_OECD <- get_dataset("RS_GBL", filter= list(c(),c("NES"),c(taxes),c("TAXPER")),start_time = 2018)
@@ -387,6 +392,7 @@ all_data_NON_OECD$oecd <- ifelse(all_data_NON_OECD$iso_3 == "AUS"
                         | all_data_NON_OECD$iso_3 == "CAN"
                         | all_data_NON_OECD$iso_3 == "CHL"
                         |all_data_NON_OECD$iso_3 == "COL"
+                        |all_data_NON_OECD$iso_3 == "CRI"
                         | all_data_NON_OECD$iso_3 == "CZE"
                         | all_data_NON_OECD$iso_3 == "DNK"
                         | all_data_NON_OECD$iso_3 == "EST"
@@ -433,7 +439,7 @@ non_oecd_data <- subset(all_data_NON_OECD, subset = oecd == 0)
 
 write.csv(non_oecd_data, "intermediate-outputs/non_oecd_data_preliminary.csv")
 
-
+#NOTHING BELOW THIS LINE WAS UPDATED WHEN 2020 DATA WAS ADDED###
 
 #Fix non-OECD countries for which some 2018 data is missing
 
@@ -459,7 +465,7 @@ missing_philippines <- data.frame(iso_2 = c("PH"), iso_3 = c("PHL"), country = c
 non_oecd_data <- rbind(non_oecd_data, missing_ecuador, missing_jamaica, missing_nicaragua, missing_liechtenstein, missing_philippines)
 
 #Combine non-OECD and OECD countries into one dataframe
-oecd_and_non_oecd <- rbind(oecd_data_2019, non_oecd_data)
+oecd_and_non_oecd <- rbind(oecd_data_2020, non_oecd_data)
 
 #Change the continent assigned to Turkey from Asia to Europe (that's how it is done in the publication)
 oecd_and_non_oecd[oecd_and_non_oecd$country == "Turkey", "continent"] <- "EU"
@@ -798,15 +804,15 @@ write.csv(regional_averages, "final-outputs/regional_averages.csv")
 
 
 #Reading in and cleaning OECD's Revenue Statistics - OECD countries by level of government####
-dataset_list <- get_datasets()
-search_dataset("Revenue Statistics - OECD countries: Comparative tables", data= dataset_list)
+#dataset_list <- get_datasets()
+#search_dataset("Revenue Statistics - OECD countries: Comparative tables", data= dataset_list)
 dataset <- ("REV")
-dstruc <- get_data_structure(dataset)
-str(dstruc, max.level = 1)
-dstruc$VAR
-dstruc$TAX
-dstruc$GOV
-dstruc$YEA
+#dstruc <- get_data_structure(dataset)
+#str(dstruc, max.level = 1)
+#dstruc$VAR
+#dstruc$TAX
+#dstruc$GOV
+#dstruc$YEA
 
 levgov<-c("SUPRA","FED","STATE","LOCAL","SOCSEC","NES")
 lev_OECD <- get_dataset("REV", filter= list(c(levgov),c("TOTALTAX"),c("TAXLOG")),start_time = 2018)
