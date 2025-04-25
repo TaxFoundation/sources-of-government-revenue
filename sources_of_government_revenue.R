@@ -64,7 +64,7 @@ non_OECD<-read.csv(url)
 #url = "https://sdmx.oecd.org/public/rest/data/OECD.CTP.TPS,DSD_REV_COMP_GLOBAL@DF_RSGLOBAL,/ATG+ARM+AZE+BGD+BWA+BGR+BFA+KHM+CMR+TCD+CHN+COG+COK+HRV+COD+EGY+GNQ+SWZ+FJI+GAB+GEO+GHA+GIN+HKG+IDN+KAZ+KEN+KIR+LAO+LSO+LIE+MDG+MWI+MDV+MLI+MLT+MHL+MRT+MNG+MAR+MOZ+NAM+NRU+NIC+NER+NGA+PAK+PNG+PHL+ROU+RWA+LCA+WSM+SEN+SYC+SLE+SGP+SLB+SOM+LKA+THA+TLS+TGO+TKL+TUN+UGA+UKR+VUT+VNM+ZMB+ARG+BHS+BRB+BLZ+BTN+BOL+BRA+CPV+CIV+CUB+DOM+ECU+SLV+GTM+GUY+HND+JAM+KGZ+MYS+MUS+PAN+PRY+PER+ZAF+TTO+URY..S13.T_5000+T_4000+T_3000+T_2000+T_1300+T_1200+T_1100+T_6000..PT_OTR_REV_CAT.A?startPeriod=1990&endPeriod=1990&dimensionAtObservation=AllDimensions&format=csvfilewithlabels"
 #non_OECD_1990<-read.csv(url)
 
-#Combine OECD data for 1990 with 2022 and 2023 in one dataset called all_data###
+#Combine OECD and non_OECD data for 1990 with 2022 and 2023 in one dataset called all_data###
 all_data <- rbind (all_data_OECD, all_OECD_1990,non_OECD)
 
 #Drop redundant columns
@@ -139,7 +139,11 @@ all_data$oecd <- ifelse(all_data$iso_3 == "AUS"
 #Adjust the order of the columns
 all_data <- all_data[c("iso_2", "iso_3", "country", "continent", "oecd", "year", "category", "share")]
 
-write.csv(all_data, "intermediate-outputs/data_preliminary.csv")
+#Create dataset with only OECD countries
+oecd_data <- all_data
+oecd_data <- subset(oecd_data, subset = oecd == 1)
+
+write.csv(oecd_data, "intermediate-outputs/oecd_data_preliminary.csv")
 
 #Fix countries for which 2023 data is not available (unless otherwise noted, 2022 data is used for these cases)####
 
@@ -838,118 +842,119 @@ dataset <- ("REV")
 #dstruc$GOV
 #dstruc$YEA
 
-levgov<-c("SUPRA","FED","STATE","LOCAL","SOCSEC","NES")
-lev_OECD <- get_dataset("REV", filter= list(c(levgov),c("TOTALTAX"),c("TAXLOG")),start_time = 2018)
+url = "https://sdmx.oecd.org/public/rest/data/OECD.CTP.TPS,DSD_REV_COMP_OECD@DF_RSOECD,1.1/AUS+AUT+BEL+CAN+CHL+COL+CRI+CZE+DNK+EST+FIN+FRA+DEU+HUN+ISL+IRL+ISR+ITA+JPN+KOR+LVA+LTU+LUX+MEX+NLD+NZL+NOR+POL+PRT+SVK+SVN+ESP+SWE+CHE+TUR+GBR+USA+GRC..S1315+S1314+S1313+S1312+S1311+S13._T..XDC.A?startPeriod=2022&endPeriod=2023&dimensionAtObservation=AllDimensions&format=csvfilewithlabels"
+lev_OECD<-read.csv(url)
+
+#levgov<-c("SUPRA","FED","STATE","LOCAL","SOCSEC","NES")
+#lev_OECD <- get_dataset("REV", filter= list(c(levgov),c("TOTALTAX"),c("TAXLOG")),start_time = 2018)
 
 #Drop redundant columns
-lev_OECD <- subset(lev_OECD, select=-c(UNIT,POWERCODE,TAX,TIME_FORMAT,VAR))
+lev_OECD <- subset(lev_OECD, select=c(5,9,10,19,21,25))
 
+#Calculate value according to UNIT_MULT
+lev_OECD$value<- lev_OECD$OBS_VALUE*10^lev_OECD$UNIT_MULT
 
 #Rename columns
-colnames(lev_OECD)[colnames(lev_OECD)=="COU"] <- "iso_3"
-colnames(lev_OECD)[colnames(lev_OECD)=="GOV"] <- "government"
-colnames(lev_OECD)[colnames(lev_OECD)=="obsTime"] <- "year"
-colnames(lev_OECD)[colnames(lev_OECD)=="obsValue"] <- "percentage"
+colnames(lev_OECD)[colnames(lev_OECD)=="REF_AREA"] <- "iso_3"
+colnames(lev_OECD)[colnames(lev_OECD)=="SECTOR"] <- "gov_sec"
+colnames(lev_OECD)[colnames(lev_OECD)=="Institutional.sector"] <- "government"
+colnames(lev_OECD)[colnames(lev_OECD)=="TIME_PERIOD"] <- "year"
+colnames(lev_OECD)[colnames(lev_OECD)=="value"] <- "amount_national_cur"
+#colnames(lev_OECD)[colnames(lev_OECD)=="obsValue"] <- "percenage"
+
 
 #Add country names and continents to lev_OECD data
 lev_OECD <- merge(lev_OECD, country_names, by='iso_3')
 
 #Adjust the order of the columns
-lev_OECD <- lev_OECD[c("iso_2", "iso_3", "country", "continent", "year", "government", "percentage")]
+lev_OECD <- subset(lev_OECD, select=c(1,2,3,4,7,8,9,10))
+lev_OECD <- lev_OECD[c("iso_2", "iso_3", "country", "continent", "year", "government", "gov_sec","amount_national_cur")]
 
 lev_OECD <- subset(lev_OECD, iso_3 == "AUS" | iso_3 == "MEX" | iso_3 == "COL" | iso_3 == "AUT"| iso_3 == "BEL"| iso_3 == "CAN"| iso_3 == "ESP"| iso_3 == "DEU"| iso_3 == "CHE"| iso_3 == "USA")
 
-#Australia: 2019 data not available -> use 2018 data
+
+#Australia: 2023 data not available -> use 2022 data
 lev_australia <- lev_OECD
-lev_australia <- subset(lev_australia, subset = iso_3 == "AUS" & year == "2018")
-lev_australia[lev_australia$year == 2018, "year"] <- 2019
+lev_australia <- subset(lev_australia, subset = iso_3 == "AUS" & year == "2022")
+lev_australia[lev_australia$year == 2022, "year"] <- 2023
 
-#Mexico: 2019 data not available -> use 2018 data
-lev_mexico <- lev_OECD
-lev_mexico <- subset(lev_mexico, subset = iso_3 == "MEX" & year == "2018")
-lev_mexico[lev_mexico$year == 2018, "year"] <- 2019
+#Eliminate 2022 data for Australia from the dataset
+lev_OECD <- subset(lev_OECD, !(iso_3 == "AUS" & year == "2022"))
 
-#Eliminate 2018 data for Mexico and Australia from the dataset
-lev_OECD <- subset(lev_OECD, !(iso_3 == "AUS" & year == "2018"))
-lev_OECD <- subset(lev_OECD, !(iso_3 == "MEX" & year == "2018"))
+lev_OECD <- rbind(lev_OECD, lev_australia)
 
-#For the following countries set Supranational level of government to zero
+#Limit data to 2023
+lev_OECD <- subset(lev_OECD, subset = year == 2023)
 
-#Australia
-lev_australia_supra <- data.frame(iso_2 = c("AU"), iso_3 = c("AUS"), country = c("Australia"), continent = c("OC"), year = c(2019), government = c("SUPRA"), percentage = c(0))
+lev_OECD_wide <- subset(lev_OECD, select = -c(continent, year, iso_2, iso_3, government))
+lev_OECD_wide <-reshape(lev_OECD_wide,
+                        timevar = "gov_sec",
+                        idvar = c("country"),
+                        direction = "wide")
 
-#Mexico
-lev_mexico_supra <- data.frame(iso_2 = c("MX"), iso_3 = c("MEX"), country = c("Mexico"), continent = c("NO"), year = c(2019), government = c("SUPRA"), percentage = c(0))
+lev_OECD_wide$LOCAL <- lev_OECD_wide$amount_national_cur.S1313/lev_OECD_wide$amount_national_cur.S13
 
-#Switzerland
-lev_switzerland_supra <- data.frame(iso_2 = c("CH"), iso_3 = c("CHE"), country = c("Switzerland"), continent = c("EU"), year = c(2019), government = c("SUPRA"), percentage = c(0))
+lev_OECD_wide$SOSSEC <- lev_OECD_wide$amount_national_cur.S1314/lev_OECD_wide$amount_national_cur.S13*100
+lev_OECD_wide$FED <- lev_OECD_wide$amount_national_cur.S1311/lev_OECD_wide$amount_national_cur.S13*100
+lev_OECD_wide$STATE <- lev_OECD_wide$amount_national_cur.S1312/lev_OECD_wide$amount_national_cur.S13*100
+lev_OECD_wide$SUPRA <- lev_OECD_wide$amount_national_cur.S1315/lev_OECD_wide$amount_national_cur.S13*100
 
-#United States of America
-lev_usa_supra <- data.frame(iso_2 = c("US"), iso_3 = c("USA"), country = c("United States of America"), continent = c("NO"), year = c(2019), government = c("SUPRA"), percentage = c(0))
+#Supranational level of government to zero for non EU countries
 
-#Canada
-lev_canada_supra <- data.frame(iso_2 = c("CA"), iso_3 = c("CAN"), country = c("Canada"), continent = c("NO"), year = c(2019), government = c("SUPRA"), percentage = c(0))
+lev_OECD_wide <- lev_OECD_wide %>%  mutate(SUPRA = ifelse(is.na(SUPRA), 0, SUPRA))
 
-#Colombia
-lev_colombia_supra <- data.frame(iso_2 = c("CO"), iso_3 = c("COL"), country = c("Colombia"), continent = c("SA"), year = c(2019), government = c("SUPRA"), percentage = c(0))
+lev_OECD_wide<- subset(lev_OECD_wide, select = c(1,8,9,10,11,12))
 
-#Combine data
-lev_OECD <- rbind(lev_OECD, lev_australia, lev_mexico,lev_australia_supra, lev_mexico_supra, lev_switzerland_supra, lev_usa_supra, lev_canada_supra, lev_colombia_supra )
+#Convert from long to wide format
 
-#Sort dataset
-lev_OECD <- lev_OECD[order(lev_OECD$country, lev_OECD$government, lev_OECD$year),]
+lev_OECD_long <- lev_OECD_wide %>%
+  pivot_longer(cols = c("LOCAL", "SOSSEC", "FED", "STATE","SUPRA"),
+               names_to = "government",
+               values_to = "percentage")
 
 #Calculate average for the 10 countries####
 
-#Limit data to 2019
-lev_OECD <- subset(lev_OECD, subset = year == 2019)
-
 #Calculate averages for FED (Central Government)
-lev_FED <- subset(lev_OECD, government=="FED")
+lev_FED <- subset(lev_OECD_long, government=="FED")
 lev_FED_mean <- mean(lev_FED$percentage, na.rm = TRUE)
 
 #Calculate averages for STATE (State or Regional Government)
-lev_STATE <- subset(lev_OECD, government=="STATE")
+lev_STATE <- subset(lev_OECD_long, government=="STATE")
 lev_STATE_mean <- mean(lev_STATE$percentage, na.rm = TRUE)
 
 #Calculate averages for LOCAL (Local Government)
-lev_LOCAL <- subset(lev_OECD, government=="LOCAL")
+lev_LOCAL <- subset(lev_OECD_long, government=="LOCAL")
 lev_LOCAL_mean <- mean(lev_LOCAL$percentage, na.rm = TRUE)
 
-#Calculate averages for SOCSEC (Social Security Funds)
-lev_SOCSEC <- subset(lev_OECD, government=="SOCSEC")
-lev_SOCSEC_mean <- mean(lev_SOCSEC$percentage, na.rm = TRUE)
+#Calculate averages for SOSSEC (Social Security Funds)
+lev_SOSSEC <- subset(lev_OECD_long, government=="SOSSEC")
+lev_SOSSEC_mean <- mean(lev_SOSSEC$percentage, na.rm = TRUE)
 
 #Calculate averages for SUPRA (Supranational)
-lev_SUPRA <- subset(lev_OECD, government=="SUPRA")
+lev_SUPRA <- subset(lev_OECD_long, government=="SUPRA")
 lev_SUPRA_mean <- mean(lev_SUPRA$percentage, na.rm = TRUE)
 
 #Create table showing tax revenue by level of Government####
 
-lev_OECD_long <- subset(lev_OECD, select = -c(continent, year, iso_2, iso_3))
-lev_OECD_long <-reshape(lev_OECD_long,
-                       timevar = "government",
-                       idvar = c("country"),
-                       direction = "wide")
-lev_OECD_long <- subset(lev_OECD_long, select= -c(percentage.NES))
+lev_OECD_means <- lev_OECD_wide
 
 
-lev_OECD_long <- merge(lev_OECD_long, country_names, by='country')
+lev_OECD_means <- merge(lev_OECD_means, country_names, by='country')
 
-lev_OECD_long <- subset(lev_OECD_long, select = -c(continent))
+lev_OECD_means <- subset(lev_OECD_means, select = -c(continent))
 
-colnames(lev_OECD_long)[colnames(lev_OECD_long)=="country"] <- "Country"
-colnames(lev_OECD_long)[colnames(lev_OECD_long)=="percentage.FED"] <- "Central Government"
-colnames(lev_OECD_long)[colnames(lev_OECD_long)=="percentage.LOCAL"] <- "Local Government"
-colnames(lev_OECD_long)[colnames(lev_OECD_long)=="percentage.SOCSEC"] <- "Social Security Funds"
-colnames(lev_OECD_long)[colnames(lev_OECD_long)=="percentage.STATE"] <- "State or Regional Government"
-colnames(lev_OECD_long)[colnames(lev_OECD_long)=="percentage.SUPRA"] <- "Supranational"
+colnames(lev_OECD_means)[colnames(lev_OECD_means)=="country"] <- "Country"
+colnames(lev_OECD_means)[colnames(lev_OECD_means)=="FED"] <- "Central Government"
+colnames(lev_OECD_means)[colnames(lev_OECD_means)=="LOCAL"] <- "Local Government"
+colnames(lev_OECD_means)[colnames(lev_OECD_means)=="SOSSEC"] <- "Social Security Funds"
+colnames(lev_OECD_means)[colnames(lev_OECD_means)=="STATE"] <- "State or Regional Government"
+colnames(lev_OECD_means)[colnames(lev_OECD_means)=="SUPRA"] <- "Supranational"
 
-lev_OECD_long[,c("Central Government","State or Regional Government","Social Security Funds","Local Government","Supranational")] <- round(lev_OECD_long[,c("Central Government","State or Regional Government","Social Security Funds","Local Government","Supranational")], digits = 1)
-lev_OECD_long <- lev_OECD_long[c("iso_2", "iso_3", "Country","Central Government","State or Regional Government","Social Security Funds","Local Government","Supranational")]
+lev_OECD_means[,c("Central Government","State or Regional Government","Social Security Funds","Local Government","Supranational")] <- round(lev_OECD_means[,c("Central Government","State or Regional Government","Social Security Funds","Local Government","Supranational")], digits = 1)
+lev_OECD_means <- lev_OECD_means[c("iso_2", "iso_3", "Country","Central Government","State or Regional Government","Social Security Funds","Local Government","Supranational")]
 
 #Add countries average to table
-lev_gov_average<-c("NA","NA","Average", round (lev_FED_mean, digits = 1), round (lev_STATE_mean, digits = 1), round (lev_SOCSEC_mean, digits = 1), round (lev_LOCAL_mean, digits = 1), round (lev_SUPRA_mean, digits = 1))
-lev_OECD_long<-rbind(lev_OECD_long,lev_gov_average)
+lev_gov_average<-c("NA","NA","Average", round (lev_FED_mean, digits = 1), round (lev_STATE_mean, digits = 1), round (lev_SOSSEC_mean, digits = 1), round (lev_LOCAL_mean, digits = 1), round (lev_SUPRA_mean, digits = 1))
+lev_OECD_means<-rbind(lev_OECD_means,lev_gov_average)
 
-write.csv(lev_OECD_long, "final-outputs/level_of_government_oecd.csv", row.names = FALSE)
+write.csv(lev_OECD_means, "final-outputs/level_of_government_oecd.csv", row.names = FALSE)
