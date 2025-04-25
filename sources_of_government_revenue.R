@@ -6,9 +6,9 @@ gc()
 
 #Directory Variables####
 #setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
-source_data<-"C:/Users/acer/Documents/GitHub/sources_of_government_revenue/source_data/"
-intermediate_outputs<-"C:/Users/acer/Documents/GitHub/sources_of_government_revenue/intermediate_outputs/"
-final_outputs<-"C:/Users/acer/Documents/GitHub/sources_of_government_revenue/final_outputs/"
+source_data<-"C:/GitHub/sources_of_government_revenue/source_data/"
+intermediate_outputs<-"C:/GitHub/sources_of_government_revenue/intermediate_outputs/"
+final_outputs<-"C:/GitHub/sources_of_government_revenue/final_outputs/"
 
 #general set-up
 using<-function(...,prompt=TRUE){
@@ -828,8 +828,6 @@ colnames(regional_averages)[colnames(regional_averages)=="samerica_averages..Ave
 colnames(regional_averages)[colnames(regional_averages)=="average_oecd"] <- "OECD"
 
 write.csv(regional_averages, "final-outputs/regional_averages.csv")
-
-#This part has not been updated in 2025#########
 
 #Reading in and cleaning OECD's Revenue Statistics - OECD countries by level of government####
 #dataset_list <- get_datasets()
