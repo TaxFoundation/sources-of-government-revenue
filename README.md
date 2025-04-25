@@ -5,9 +5,9 @@ The Tax Foundation’s publication [Sources of Government Revenue in the OECD](h
 ## The Dataset and its Tax Revenue Categories and Scope
 
 ### The Dataset
-All the revenue data used in this publication comes from the OECD's Revenue Statistics Database (https://stats.oecd.org/Index.aspx?DataSetCode=RS_GBL) and Revenue Statistics – OECD countries: comparative tables (https://stats.oecd.org/Index.aspx?DataSetCode=RevGlobal). The dataset includes annual revenue data for almost 100 countries worldwide, dating to 1965 for many OECD countries and 1990 for a number of non-OECD countries. As of February 2021, the most recent data is 2019 for OECD countries and 2018 for non-OECD countries.
+All the revenue data used in this publication comees from the OECD's Comparative Tables of Revenue Statistics in OECD member countries (https://data-explorer.oecd.org/vis?lc=en&fs[0]=Topic%2C1%7CTaxation%23TAX%23%7CGlobal%20tax%20revenues%23TAX_GTR%23&pg=0&fc=Topic&bp=true&snb=153&df[ds]=dsDisseminateFinalDMZ&df[id]=DSD_REV_COMP_OECD%40DF_RSOECD&df[ag]=OECD.CTP.TPS&df[vs]=1.1&dq=..S13._T..PT_B1GQ.A&lom=LASTNPERIODS&lo=10&to[TIME_PERIOD]=false) and Comparative Tables of countries in the global database (https://data-explorer.oecd.org/vis?df[ds]=dsDisseminateFinalDMZ&df[id]=DSD_REV_COMP_GLOBAL%40DF_RSGLOBAL&df[ag]=OECD.CTP.TPS&df[vs]=1.1&dq=..S13._T..PT_B1GQ.A&lom=LASTNPERIODS&lo=10&to[TIME_PERIOD]=false). The dataset includes annual revenue data for almost 100 countries worldwide, dating to 1965 for many OECD countries and 1990 for a number of non-OECD countries. As of April 2025, the most recent data is 2023 for OECD countries and 2022 for non-OECD countries.
 
-Details regarding the OECD dataset can be found in Annex A of the “Revenue Statistics 2020,” https://www.oecd-ilibrary.org/sites/8625f8e5-en/1/4/1/index.html?itemId=/content/publication/8625f8e5-en&_csp_=10eecbf76519867b3d14d98d90e8aff0&itemIGO=oecd&itemContentType=book#.
+Details regarding the OECD dataset can be found in Annex A of the “Revenue Statistics 2024,” https://www.oecd.org/en/publications/revenue-statistics-2024_c87a3da5-en/full-report/component-9.html#annex-d1e746315-fc012931d9.
 
 ### Revenue Categories
 The OECD's Global Revenue Statistics Database provides various categories for the different tax revenue sources. For our report, we chose and combined these categories as follows:
@@ -60,16 +60,16 @@ Location of **input** files to .R code file including:
 
 Location of **intermediate output** files of .R code file including:
 
-- `oecd_data_preliminary.csv` Tax revenue shares for OECD countries for the years 1990, 2018, and 2019 (note: 2019 data is not available for Australia, Japan, and Mexico).
-- `non_oecd_data_preliminary.csv` Tax revenue shares for non-OECD countries for the year 2018 (note: 2019 data is not available for non-OECD countries).
+- `oecd_data_preliminary.csv` Tax revenue shares for OECD countries for the years 1990, 2022, and 2023 (note: 2023 data is not available for Australia, and Japan).
+- `non_oecd_data_preliminary.csv` Tax revenue shares for non-OECD countries for the year 2022 (note: 2023 data is not available for non-OECD countries).
 
 
 ### /final-outputs
 Location of **output tables** that are included in the publication.
 
-- `oecd_averages.csv` Table showing the OECD average tax revenue shares (for the year 2019).
+- `oecd_averages.csv` Table showing the OECD average tax revenue shares (for the year 2023).
 
-- `oecd_averages_1990.csv` Table comparing the 2019 OECD average tax revenue shares with the corresponding 1990 shares.
+- `oecd_averages_1990.csv` Table comparing the 2023 OECD average tax revenue shares with the corresponding 1990 shares.
 
 - `oecd_by_country.csv` Table showing the tax revenue shares for each OECD country, Table 1 in the publication.
 

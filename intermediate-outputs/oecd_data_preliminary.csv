@@ -1,0 +1,617 @@
+"","iso_2","iso_3","country","continent","oecd","year","category","share"
+"24","AU","AUS","Australia","OC",1,1990,6000,0
+"25","AU","AUS","Australia","OC",1,2022,3000,4.688
+"26","AU","AUS","Australia","OC",1,1990,1100,42.971674
+"27","AU","AUS","Australia","OC",1,1990,1200,14.145923
+"28","AU","AUS","Australia","OC",1,2022,1300,0
+"29","AU","AUS","Australia","OC",1,1990,1300,0
+"30","AU","AUS","Australia","OC",1,1990,5000,27.824893
+"31","AU","AUS","Australia","OC",1,2022,6000,0
+"32","AU","AUS","Australia","OC",1,2022,1100,40.437
+"33","AU","AUS","Australia","OC",1,1990,4000,8.950215
+"34","AU","AUS","Australia","OC",1,2022,4000,9.281
+"35","AU","AUS","Australia","OC",1,1990,3000,6.107296
+"36","AU","AUS","Australia","OC",1,1990,2000,0
+"37","AU","AUS","Australia","OC",1,2022,2000,0
+"38","AU","AUS","Australia","OC",1,2022,5000,23.78
+"39","AU","AUS","Australia","OC",1,2022,1200,21.814
+"40","AT","AUT","Austria","EU",1,2023,4000,1.078888
+"41","AT","AUT","Austria","EU",1,1990,4000,2.726062
+"42","AT","AUT","Austria","EU",1,1990,6000,1.321006
+"43","AT","AUT","Austria","EU",1,2023,1100,21.93505
+"44","AT","AUT","Austria","EU",1,2023,5000,27.195624
+"45","AT","AUT","Austria","EU",1,1990,1100,20.958983
+"46","AT","AUT","Austria","EU",1,2023,1300,0.652926
+"47","AT","AUT","Austria","EU",1,1990,1200,3.572216
+"48","AT","AUT","Austria","EU",1,1990,3000,6.031334
+"49","AT","AUT","Austria","EU",1,1990,2000,32.869688
+"50","AT","AUT","Austria","EU",1,2023,1200,7.668623
+"51","AT","AUT","Austria","EU",1,2023,6000,0.40773
+"52","AT","AUT","Austria","EU",1,2023,2000,34.775282
+"53","AT","AUT","Austria","EU",1,1990,5000,31.52071
+"54","AT","AUT","Austria","EU",1,2023,3000,6.285876
+"55","AT","AUT","Austria","EU",1,1990,1300,1
+"64","BE","BEL","Belgium","EU",1,2023,1300,0.042938
+"65","BE","BEL","Belgium","EU",1,1990,6000,0
+"66","BE","BEL","Belgium","EU",1,1990,1300,0.057096
+"67","BE","BEL","Belgium","EU",1,2023,4000,7.390247
+"68","BE","BEL","Belgium","EU",1,2023,2000,30.967656
+"69","BE","BEL","Belgium","EU",1,1990,4000,3.804976
+"70","BE","BEL","Belgium","EU",1,2023,1100,27.675581
+"71","BE","BEL","Belgium","EU",1,2023,5000,24.569838
+"72","BE","BEL","Belgium","EU",1,2023,1200,9.35153
+"73","BE","BEL","Belgium","EU",1,1990,1200,4.83597
+"74","BE","BEL","Belgium","EU",1,1990,2000,33.215212
+"75","BE","BEL","Belgium","EU",1,1990,1100,32.010232
+"76","BE","BEL","Belgium","EU",1,2023,3000,0.002209
+"77","BE","BEL","Belgium","EU",1,1990,3000,0
+"78","BE","BEL","Belgium","EU",1,2023,6000,0
+"79","BE","BEL","Belgium","EU",1,1990,5000,26.076514
+"158","CA","CAN","Canada","NO",1,2023,1100,36.670716
+"159","CA","CAN","Canada","NO",1,1990,3000,2.252166
+"160","CA","CAN","Canada","NO",1,1990,1100,40.844013
+"161","CA","CAN","Canada","NO",1,2023,5000,21.592321
+"162","CA","CAN","Canada","NO",1,2023,3000,2.199705
+"163","CA","CAN","Canada","NO",1,1990,6000,1.177555
+"164","CA","CAN","Canada","NO",1,2023,4000,9.850403
+"165","CA","CAN","Canada","NO",1,1990,4000,10.021335
+"166","CA","CAN","Canada","NO",1,1990,5000,25.841275
+"167","CA","CAN","Canada","NO",1,1990,2000,12.14546
+"168","CA","CAN","Canada","NO",1,1990,1300,0.677501
+"169","CA","CAN","Canada","NO",1,2023,6000,0.105785
+"170","CA","CAN","Canada","NO",1,2023,1200,13.390266
+"171","CA","CAN","Canada","NO",1,2023,1300,1.277867
+"172","CA","CAN","Canada","NO",1,1990,1200,7.040696
+"173","CA","CAN","Canada","NO",1,2023,2000,14.912937
+"174","CH","CHE","Switzerland","EU",1,1990,3000,0
+"175","CH","CHE","Switzerland","EU",1,2023,4000,8.086161
+"176","CH","CHE","Switzerland","EU",1,2023,2000,24.682424
+"177","CH","CHE","Switzerland","EU",1,2023,1300,3.777069
+"178","CH","CHE","Switzerland","EU",1,2023,6000,0.549672
+"179","CH","CHE","Switzerland","EU",1,2023,1100,31.015024
+"180","CH","CHE","Switzerland","EU",1,1990,5000,20.920293
+"181","CH","CHE","Switzerland","EU",1,1990,1200,7.332644
+"182","CH","CHE","Switzerland","EU",1,1990,1100,32.339176
+"183","CH","CHE","Switzerland","EU",1,2023,1200,11.908452
+"184","CH","CHE","Switzerland","EU",1,2023,3000,0
+"185","CH","CHE","Switzerland","EU",1,1990,4000,8.862237
+"186","CH","CHE","Switzerland","EU",1,1990,2000,23.290984
+"187","CH","CHE","Switzerland","EU",1,1990,1300,7.09147
+"188","CH","CHE","Switzerland","EU",1,1990,6000,0.163195
+"189","CH","CHE","Switzerland","EU",1,2023,5000,19.981198
+"190","CL","CHL","Chile","SA",1,1990,3000,0
+"191","CL","CHL","Chile","SA",1,1990,2000,8.97802
+"192","CL","CHL","Chile","SA",1,2023,1200,25.310676
+"193","CL","CHL","Chile","SA",1,1990,1300,5.302292
+"194","CL","CHL","Chile","SA",1,2023,4000,6.457484
+"195","CL","CHL","Chile","SA",1,1990,5000,62.947954
+"196","CL","CHL","Chile","SA",1,1990,6000,-1.314187
+"197","CL","CHL","Chile","SA",1,1990,4000,6.15111
+"198","CL","CHL","Chile","SA",1,2023,3000,0
+"199","CL","CHL","Chile","SA",1,2023,1100,9.334975
+"200","CL","CHL","Chile","SA",1,2023,5000,54.199978
+"201","CL","CHL","Chile","SA",1,2023,1300,0.519288
+"202","CL","CHL","Chile","SA",1,1990,1200,12.355614
+"203","CL","CHL","Chile","SA",1,2023,6000,-1.470626
+"204","CL","CHL","Chile","SA",1,2023,2000,5.648225
+"205","CL","CHL","Chile","SA",1,1990,1100,5.579197
+"254","CO","COL","Colombia","SA",1,2023,2000,7.255079
+"255","CO","COL","Colombia","SA",1,2023,5000,39.501724
+"256","CO","COL","Colombia","SA",1,2023,4000,7.40486
+"257","CO","COL","Colombia","SA",1,1990,3000,0
+"258","CO","COL","Colombia","SA",1,2023,1200,32.31346
+"259","CO","COL","Colombia","SA",1,1990,6000,6.1767
+"260","CO","COL","Colombia","SA",1,1990,1100,1.830243
+"261","CO","COL","Colombia","SA",1,1990,1300,14.139832
+"262","CO","COL","Colombia","SA",1,2023,1100,7.371798
+"263","CO","COL","Colombia","SA",1,2023,1300,0.388142
+"264","CO","COL","Colombia","SA",1,2023,3000,1.436584
+"265","CO","COL","Colombia","SA",1,1990,2000,7.893075
+"266","CO","COL","Colombia","SA",1,1990,4000,2.177215
+"267","CO","COL","Colombia","SA",1,2023,6000,4.328353
+"268","CO","COL","Colombia","SA",1,1990,1200,13.947211
+"269","CO","COL","Colombia","SA",1,1990,5000,53.835724
+"278","CR","CRI","Costa Rica","NO",1,1990,2000,28.875757
+"279","CR","CRI","Costa Rica","NO",1,1990,5000,45.457866
+"280","CR","CRI","Costa Rica","NO",1,1990,1200,NA
+"281","CR","CRI","Costa Rica","NO",1,1990,6000,7.859235
+"282","CR","CRI","Costa Rica","NO",1,1990,1100,NA
+"283","CR","CRI","Costa Rica","NO",1,2023,1200,10.611159
+"284","CR","CRI","Costa Rica","NO",1,2023,2000,35.731148
+"285","CR","CRI","Costa Rica","NO",1,2023,5000,33.383535
+"286","CR","CRI","Costa Rica","NO",1,2023,1300,4.864804
+"287","CR","CRI","Costa Rica","NO",1,1990,4000,1.32995
+"288","CR","CRI","Costa Rica","NO",1,2023,1100,5.717854
+"289","CR","CRI","Costa Rica","NO",1,1990,3000,6.435496
+"290","CR","CRI","Costa Rica","NO",1,2023,3000,5.912043
+"291","CR","CRI","Costa Rica","NO",1,1990,1300,10.041695
+"292","CR","CRI","Costa Rica","NO",1,2023,6000,1.897491
+"293","CR","CRI","Costa Rica","NO",1,2023,4000,1.881966
+"302","CZ","CZE","Czechia","EU",1,2023,3000,0
+"303","CZ","CZE","Czechia","EU",1,1990,2000,NA
+"304","CZ","CZE","Czechia","EU",1,1990,1100,NA
+"305","CZ","CZE","Czechia","EU",1,2023,1100,9.737014
+"306","CZ","CZE","Czechia","EU",1,2023,5000,30.71568
+"307","CZ","CZE","Czechia","EU",1,1990,1300,NA
+"308","CZ","CZE","Czechia","EU",1,2023,1200,13.864967
+"309","CZ","CZE","Czechia","EU",1,2023,6000,0.024644
+"310","CZ","CZE","Czechia","EU",1,2023,4000,0.486407
+"311","CZ","CZE","Czechia","EU",1,2023,1300,0
+"312","CZ","CZE","Czechia","EU",1,1990,3000,NA
+"313","CZ","CZE","Czechia","EU",1,1990,1200,NA
+"314","CZ","CZE","Czechia","EU",1,1990,6000,NA
+"315","CZ","CZE","Czechia","EU",1,1990,5000,NA
+"316","CZ","CZE","Czechia","EU",1,1990,4000,NA
+"317","CZ","CZE","Czechia","EU",1,2023,2000,45.171288
+"318","DE","DEU","Germany","EU",1,2023,3000,0
+"319","DE","DEU","Germany","EU",1,2023,1100,26.430507
+"320","DE","DEU","Germany","EU",1,1990,2000,37.480803
+"321","DE","DEU","Germany","EU",1,2023,1300,0
+"322","DE","DEU","Germany","EU",1,1990,1300,0
+"323","DE","DEU","Germany","EU",1,2023,5000,26.490107
+"324","DE","DEU","Germany","EU",1,1990,6000,0.035078
+"325","DE","DEU","Germany","EU",1,1990,3000,0
+"326","DE","DEU","Germany","EU",1,2023,4000,2.460803
+"327","DE","DEU","Germany","EU",1,1990,5000,26.734065
+"328","DE","DEU","Germany","EU",1,1990,1200,4.829095
+"329","DE","DEU","Germany","EU",1,2023,6000,0.025943
+"330","DE","DEU","Germany","EU",1,1990,4000,3.369079
+"331","DE","DEU","Germany","EU",1,2023,2000,38.495739
+"332","DE","DEU","Germany","EU",1,1990,1100,27.551881
+"333","DE","DEU","Germany","EU",1,2023,1200,6.096901
+"334","DK","DNK","Denmark","EU",1,2023,3000,0.600566
+"335","DK","DNK","Denmark","EU",1,1990,5000,33.986076
+"336","DK","DNK","Denmark","EU",1,2023,1100,57.13687
+"337","DK","DNK","Denmark","EU",1,2023,1200,8.71962
+"338","DK","DNK","Denmark","EU",1,1990,4000,4.262161
+"339","DK","DNK","Denmark","EU",1,1990,2000,0.026425
+"340","DK","DNK","Denmark","EU",1,2023,4000,3.818038
+"341","DK","DNK","Denmark","EU",1,1990,1100,54.196269
+"342","DK","DNK","Denmark","EU",1,2023,5000,28.348707
+"343","DK","DNK","Denmark","EU",1,2023,6000,0.123597
+"344","DK","DNK","Denmark","EU",1,1990,1300,3.306663
+"345","DK","DNK","Denmark","EU",1,2023,1300,1.068636
+"346","DK","DNK","Denmark","EU",1,1990,3000,0.654326
+"347","DK","DNK","Denmark","EU",1,2023,2000,0.183966
+"348","DK","DNK","Denmark","EU",1,1990,1200,3.568079
+"349","DK","DNK","Denmark","EU",1,1990,6000,0
+"371","ES","ESP","Spain","EU",1,2023,1300,0
+"372","ES","ESP","Spain","EU",1,1990,4000,5.515974
+"373","ES","ESP","Spain","EU",1,1990,6000,0.020933
+"374","ES","ESP","Spain","EU",1,2023,1200,7.899159
+"375","ES","ESP","Spain","EU",1,1990,5000,28.396672
+"376","ES","ESP","Spain","EU",1,2023,3000,0
+"377","ES","ESP","Spain","EU",1,1990,1100,21.731039
+"378","ES","ESP","Spain","EU",1,2023,5000,26.787688
+"379","ES","ESP","Spain","EU",1,2023,1100,24.372035
+"380","ES","ESP","Spain","EU",1,1990,3000,0
+"381","ES","ESP","Spain","EU",1,1990,1300,0.087837
+"382","ES","ESP","Spain","EU",1,1990,2000,35.425055
+"383","ES","ESP","Spain","EU",1,2023,6000,0.029137
+"384","ES","ESP","Spain","EU",1,2023,2000,34.685564
+"385","ES","ESP","Spain","EU",1,2023,4000,6.226418
+"386","ES","ESP","Spain","EU",1,1990,1200,8.822491
+"387","EE","EST","Estonia","EU",1,1990,4000,NA
+"388","EE","EST","Estonia","EU",1,1990,6000,NA
+"389","EE","EST","Estonia","EU",1,1990,1300,NA
+"390","EE","EST","Estonia","EU",1,2023,4000,0.461124
+"391","EE","EST","Estonia","EU",1,2023,3000,0
+"392","EE","EST","Estonia","EU",1,1990,1200,NA
+"393","EE","EST","Estonia","EU",1,1990,2000,NA
+"394","EE","EST","Estonia","EU",1,2023,1100,18.685082
+"395","EE","EST","Estonia","EU",1,2023,2000,35.782235
+"396","EE","EST","Estonia","EU",1,2023,6000,0
+"397","EE","EST","Estonia","EU",1,2023,1200,5.603062
+"398","EE","EST","Estonia","EU",1,1990,3000,NA
+"399","EE","EST","Estonia","EU",1,1990,1100,NA
+"400","EE","EST","Estonia","EU",1,1990,5000,NA
+"401","EE","EST","Estonia","EU",1,2023,1300,0
+"402","EE","EST","Estonia","EU",1,2023,5000,39.468496
+"403","FI","FIN","Finland","EU",1,2023,1200,6.804587
+"404","FI","FIN","Finland","EU",1,1990,4000,2.447994
+"405","FI","FIN","Finland","EU",1,2023,1300,0
+"406","FI","FIN","Finland","EU",1,2023,4000,3.302881
+"407","FI","FIN","Finland","EU",1,1990,1200,4.509328
+"408","FI","FIN","Finland","EU",1,1990,1300,0
+"409","FI","FIN","Finland","EU",1,1990,2000,25.637361
+"410","FI","FIN","Finland","EU",1,2023,5000,31.081706
+"411","FI","FIN","Finland","EU",1,1990,3000,0
+"412","FI","FIN","Finland","EU",1,1990,1100,34.727716
+"413","FI","FIN","Finland","EU",1,2023,3000,0
+"414","FI","FIN","Finland","EU",1,1990,5000,32.549568
+"415","FI","FIN","Finland","EU",1,2023,1100,29.813345
+"416","FI","FIN","Finland","EU",1,2023,2000,28.929777
+"417","FI","FIN","Finland","EU",1,2023,6000,0.067703
+"418","FI","FIN","Finland","EU",1,1990,6000,0.128033
+"427","FR","FRA","France","EU",1,2023,1200,5.294819
+"428","FR","FRA","France","EU",1,1990,2000,44.064816
+"429","FR","FRA","France","EU",1,1990,1300,0.059852
+"430","FR","FRA","France","EU",1,2023,3000,4.412914
+"431","FR","FRA","France","EU",1,2023,4000,7.88908
+"432","FR","FRA","France","EU",1,2023,5000,25.715935
+"433","FR","FRA","France","EU",1,1990,5000,28.410068
+"434","FR","FRA","France","EU",1,2023,6000,1.947608
+"435","FR","FRA","France","EU",1,1990,6000,3.241319
+"436","FR","FRA","France","EU",1,2023,1300,0
+"437","FR","FRA","France","EU",1,2023,2000,33.233067
+"438","FR","FRA","France","EU",1,1990,1200,5.329249
+"439","FR","FRA","France","EU",1,1990,1100,10.667425
+"440","FR","FRA","France","EU",1,1990,3000,1.902786
+"441","FR","FRA","France","EU",1,2023,1100,21.506577
+"442","FR","FRA","France","EU",1,1990,4000,6.324485
+"451","GB","GBR","United Kingdom of Great Britain and Northern Ireland","EU",1,2023,6000,0
+"452","GB","GBR","United Kingdom of Great Britain and Northern Ireland","EU",1,1990,2000,17.026901
+"453","GB","GBR","United Kingdom of Great Britain and Northern Ireland","EU",1,1990,3000,0
+"454","GB","GBR","United Kingdom of Great Britain and Northern Ireland","EU",1,1990,4000,8.172241
+"455","GB","GBR","United Kingdom of Great Britain and Northern Ireland","EU",1,1990,6000,4.455744
+"456","GB","GBR","United Kingdom of Great Britain and Northern Ireland","EU",1,2023,1200,10.073219
+"457","GB","GBR","United Kingdom of Great Britain and Northern Ireland","EU",1,2023,5000,29.990478
+"458","GB","GBR","United Kingdom of Great Britain and Northern Ireland","EU",1,1990,1200,9.917576
+"459","GB","GBR","United Kingdom of Great Britain and Northern Ireland","EU",1,2023,4000,10.529131
+"460","GB","GBR","United Kingdom of Great Britain and Northern Ireland","EU",1,1990,1100,29.404847
+"461","GB","GBR","United Kingdom of Great Britain and Northern Ireland","EU",1,1990,5000,31.022691
+"462","GB","GBR","United Kingdom of Great Britain and Northern Ireland","EU",1,1990,1300,0
+"463","GB","GBR","United Kingdom of Great Britain and Northern Ireland","EU",1,2023,3000,0.403678
+"464","GB","GBR","United Kingdom of Great Britain and Northern Ireland","EU",1,2023,1100,30.033765
+"465","GB","GBR","United Kingdom of Great Britain and Northern Ireland","EU",1,2023,2000,18.969729
+"466","GB","GBR","United Kingdom of Great Britain and Northern Ireland","EU",1,2023,1300,0
+"498","GR","GRC","Greece","EU",1,2023,6000,0
+"499","GR","GRC","Greece","EU",1,1990,4000,4.639611
+"500","GR","GRC","Greece","EU",1,1990,1300,0.279794
+"501","GR","GRC","Greece","EU",1,2023,1100,NA
+"502","GR","GRC","Greece","EU",1,1990,1200,5.504166
+"503","GR","GRC","Greece","EU",1,2023,3000,0
+"504","GR","GRC","Greece","EU",1,2022,2000,29.577
+"505","GR","GRC","Greece","EU",1,2023,1200,NA
+"506","GR","GRC","Greece","EU",1,2023,4000,7.101044
+"507","GR","GRC","Greece","EU",1,2023,5000,40.107263
+"508","GR","GRC","Greece","EU",1,1990,3000,0.688088
+"509","GR","GRC","Greece","EU",1,2022,6000,0
+"510","GR","GRC","Greece","EU",1,2022,3000,0
+"511","GR","GRC","Greece","EU",1,2022,1200,6.021
+"512","GR","GRC","Greece","EU",1,2022,1100,13.563
+"513","GR","GRC","Greece","EU",1,2022,5000,43.272
+"514","GR","GRC","Greece","EU",1,2023,2000,28.811548
+"515","GR","GRC","Greece","EU",1,2022,1300,0.922
+"516","GR","GRC","Greece","EU",1,1990,1100,14.113975
+"517","GR","GRC","Greece","EU",1,2023,1300,NA
+"518","GR","GRC","Greece","EU",1,1990,6000,0.024252
+"519","GR","GRC","Greece","EU",1,1990,5000,44.537489
+"520","GR","GRC","Greece","EU",1,2022,4000,6.646
+"521","GR","GRC","Greece","EU",1,1990,2000,30.212626
+"562","HU","HUN","Hungary","EU",1,1990,1200,NA
+"563","HU","HUN","Hungary","EU",1,1990,4000,NA
+"564","HU","HUN","Hungary","EU",1,1990,2000,NA
+"565","HU","HUN","Hungary","EU",1,2023,5000,45.689271
+"566","HU","HUN","Hungary","EU",1,1990,5000,NA
+"567","HU","HUN","Hungary","EU",1,2023,3000,1.668194
+"568","HU","HUN","Hungary","EU",1,1990,6000,NA
+"569","HU","HUN","Hungary","EU",1,1990,1300,NA
+"570","HU","HUN","Hungary","EU",1,2023,1200,6.316881
+"571","HU","HUN","Hungary","EU",1,2023,1300,0
+"572","HU","HUN","Hungary","EU",1,1990,1100,NA
+"573","HU","HUN","Hungary","EU",1,2023,4000,2.152414
+"574","HU","HUN","Hungary","EU",1,2023,2000,28.02274
+"575","HU","HUN","Hungary","EU",1,2023,6000,0.563726
+"576","HU","HUN","Hungary","EU",1,2023,1100,15.586774
+"577","HU","HUN","Hungary","EU",1,1990,3000,NA
+"586","IE","IRL","Ireland","EU",1,2023,2000,15.558029
+"587","IE","IRL","Ireland","EU",1,2023,1300,0
+"588","IE","IRL","Ireland","EU",1,1990,1100,33.109534
+"589","IE","IRL","Ireland","EU",1,2023,1200,21.662864
+"590","IE","IRL","Ireland","EU",1,1990,5000,41.928481
+"591","IE","IRL","Ireland","EU",1,1990,3000,1.295027
+"592","IE","IRL","Ireland","EU",1,2023,1100,31.116288
+"593","IE","IRL","Ireland","EU",1,2023,3000,0.947824
+"594","IE","IRL","Ireland","EU",1,1990,1200,4.918804
+"595","IE","IRL","Ireland","EU",1,2023,4000,4.608819
+"596","IE","IRL","Ireland","EU",1,2023,6000,0.012869
+"597","IE","IRL","Ireland","EU",1,1990,2000,14.103703
+"598","IE","IRL","Ireland","EU",1,1990,1300,0
+"599","IE","IRL","Ireland","EU",1,2023,5000,26.093308
+"600","IE","IRL","Ireland","EU",1,1990,4000,4.64445
+"601","IE","IRL","Ireland","EU",1,1990,6000,0
+"602","IS","ISL","Iceland","EU",1,1990,1300,0
+"603","IS","ISL","Iceland","EU",1,2023,5000,32.277702
+"604","IS","ISL","Iceland","EU",1,2023,4000,5.592658
+"605","IS","ISL","Iceland","EU",1,1990,5000,51.285108
+"606","IS","ISL","Iceland","EU",1,2023,1200,9.401132
+"607","IS","ISL","Iceland","EU",1,2023,3000,0.764526
+"608","IS","ISL","Iceland","EU",1,2023,2000,8.324105
+"609","IS","ISL","Iceland","EU",1,1990,1200,2.782515
+"610","IS","ISL","Iceland","EU",1,2023,1300,3.966678
+"611","IS","ISL","Iceland","EU",1,1990,6000,3.92928
+"612","IS","ISL","Iceland","EU",1,2023,1100,38.64626
+"613","IS","ISL","Iceland","EU",1,1990,4000,8.430202
+"614","IS","ISL","Iceland","EU",1,1990,3000,3.542094
+"615","IS","ISL","Iceland","EU",1,1990,1100,26.892423
+"616","IS","ISL","Iceland","EU",1,2023,6000,1.026939
+"617","IS","ISL","Iceland","EU",1,1990,2000,3.138377
+"618","IL","ISR","Israel","AS",1,1990,1100,NA
+"619","IL","ISR","Israel","AS",1,2023,1200,12.013289
+"620","IL","ISR","Israel","AS",1,1990,1300,NA
+"621","IL","ISR","Israel","AS",1,2023,4000,10.856659
+"622","IL","ISR","Israel","AS",1,2023,3000,3.050703
+"623","IL","ISR","Israel","AS",1,2023,1100,21.487264
+"624","IL","ISR","Israel","AS",1,2023,1300,3.557817
+"625","IL","ISR","Israel","AS",1,1990,2000,NA
+"626","IL","ISR","Israel","AS",1,2023,2000,16.70652
+"627","IL","ISR","Israel","AS",1,2023,6000,0
+"628","IL","ISR","Israel","AS",1,1990,5000,NA
+"629","IL","ISR","Israel","AS",1,1990,6000,NA
+"630","IL","ISR","Israel","AS",1,1990,3000,NA
+"631","IL","ISR","Israel","AS",1,1990,1200,NA
+"632","IL","ISR","Israel","AS",1,2023,5000,32.327748
+"633","IL","ISR","Israel","AS",1,1990,4000,NA
+"634","IT","ITA","Italy","EU",1,1990,4000,2.256607
+"635","IT","ITA","Italy","EU",1,2023,4000,5.250486
+"636","IT","ITA","Italy","EU",1,2023,1300,0.874801
+"637","IT","ITA","Italy","EU",1,1990,2000,32.912297
+"638","IT","ITA","Italy","EU",1,2023,1100,26.888199
+"639","IT","ITA","Italy","EU",1,1990,1100,26.272799
+"640","IT","ITA","Italy","EU",1,1990,3000,0.335842
+"641","IT","ITA","Italy","EU",1,2023,6000,3.236966
+"642","IT","ITA","Italy","EU",1,2023,2000,29.559013
+"643","IT","ITA","Italy","EU",1,1990,6000,0
+"644","IT","ITA","Italy","EU",1,1990,1200,10.035318
+"645","IT","ITA","Italy","EU",1,2023,5000,27.717969
+"646","IT","ITA","Italy","EU",1,1990,5000,28.018047
+"647","IT","ITA","Italy","EU",1,2023,3000,0
+"648","IT","ITA","Italy","EU",1,1990,1300,0.16909
+"649","IT","ITA","Italy","EU",1,2023,1200,6.472566
+"658","JP","JPN","Japan","AS",1,1990,5000,13.693389
+"659","JP","JPN","Japan","AS",1,1990,3000,0
+"660","JP","JPN","Japan","AS",1,2022,6000,0.245
+"661","JP","JPN","Japan","AS",1,1990,6000,0.256338
+"662","JP","JPN","Japan","AS",1,2022,5000,20.846
+"663","JP","JPN","Japan","AS",1,2022,1300,0
+"664","JP","JPN","Japan","AS",1,2022,4000,7.871
+"665","JP","JPN","Japan","AS",1,1990,4000,9.397773
+"666","JP","JPN","Japan","AS",1,2022,3000,0
+"667","JP","JPN","Japan","AS",1,1990,1200,22.38413
+"668","JP","JPN","Japan","AS",1,1990,1300,0
+"669","JP","JPN","Japan","AS",1,2022,2000,38.529
+"670","JP","JPN","Japan","AS",1,1990,2000,26.453597
+"671","JP","JPN","Japan","AS",1,2022,1100,18.808
+"672","JP","JPN","Japan","AS",1,1990,1100,27.814773
+"673","JP","JPN","Japan","AS",1,2022,1200,13.701
+"712","KR","KOR","Republic of Korea","AS",1,2023,2000,29.244281
+"713","KR","KOR","Republic of Korea","AS",1,1990,2000,10.090798
+"714","KR","KOR","Republic of Korea","AS",1,2023,1300,0
+"715","KR","KOR","Republic of Korea","AS",1,1990,3000,0.4101
+"716","KR","KOR","Republic of Korea","AS",1,2023,1100,19.838289
+"717","KR","KOR","Republic of Korea","AS",1,2023,1200,14.395089
+"718","KR","KOR","Republic of Korea","AS",1,1990,1200,12.765397
+"719","KR","KOR","Republic of Korea","AS",1,1990,1100,19.967972
+"720","KR","KOR","Republic of Korea","AS",1,2023,6000,2.032618
+"721","KR","KOR","Republic of Korea","AS",1,1990,4000,11.778484
+"722","KR","KOR","Republic of Korea","AS",1,2023,3000,0.331356
+"723","KR","KOR","Republic of Korea","AS",1,1990,6000,0.695353
+"724","KR","KOR","Republic of Korea","AS",1,2023,5000,22.641799
+"725","KR","KOR","Republic of Korea","AS",1,1990,5000,44.274586
+"726","KR","KOR","Republic of Korea","AS",1,1990,1300,0.01731
+"727","KR","KOR","Republic of Korea","AS",1,2023,4000,11.516567
+"765","LT","LTU","Lithuania","EU",1,1990,2000,NA
+"766","LT","LTU","Lithuania","EU",1,1990,1300,NA
+"767","LT","LTU","Lithuania","EU",1,1990,5000,NA
+"768","LT","LTU","Lithuania","EU",1,1990,1100,NA
+"769","LT","LTU","Lithuania","EU",1,1990,3000,NA
+"770","LT","LTU","Lithuania","EU",1,2023,1300,0
+"771","LT","LTU","Lithuania","EU",1,2023,2000,31.92652
+"772","LT","LTU","Lithuania","EU",1,1990,6000,NA
+"773","LT","LTU","Lithuania","EU",1,2023,5000,34.662388
+"774","LT","LTU","Lithuania","EU",1,2023,6000,0
+"775","LT","LTU","Lithuania","EU",1,2023,4000,0.93693
+"776","LT","LTU","Lithuania","EU",1,2023,1200,8.139974
+"777","LT","LTU","Lithuania","EU",1,2023,3000,0
+"778","LT","LTU","Lithuania","EU",1,2023,1100,24.334188
+"779","LT","LTU","Lithuania","EU",1,1990,1200,NA
+"780","LT","LTU","Lithuania","EU",1,1990,4000,NA
+"781","LU","LUX","Luxembourg","EU",1,1990,4000,8.423084
+"782","LU","LUX","Luxembourg","EU",1,1990,1300,0
+"783","LU","LUX","Luxembourg","EU",1,1990,2000,27.545144
+"784","LU","LUX","Luxembourg","EU",1,2023,5000,22.785142
+"785","LU","LUX","Luxembourg","EU",1,2023,6000,0.083105
+"786","LU","LUX","Luxembourg","EU",1,2023,2000,28.048184
+"787","LU","LUX","Luxembourg","EU",1,1990,1100,24.073158
+"788","LU","LUX","Luxembourg","EU",1,1990,5000,23.637839
+"789","LU","LUX","Luxembourg","EU",1,2023,1200,12.20235
+"790","LU","LUX","Luxembourg","EU",1,2023,1300,0
+"791","LU","LUX","Luxembourg","EU",1,2023,3000,0
+"792","LU","LUX","Luxembourg","EU",1,1990,6000,0.182606
+"793","LU","LUX","Luxembourg","EU",1,1990,3000,0
+"794","LU","LUX","Luxembourg","EU",1,2023,4000,8.601893
+"795","LU","LUX","Luxembourg","EU",1,1990,1200,16.13817
+"796","LU","LUX","Luxembourg","EU",1,2023,1100,28.279326
+"797","LV","LVA","Latvia","EU",1,2023,1300,0
+"798","LV","LVA","Latvia","EU",1,2023,1100,19.670009
+"799","LV","LVA","Latvia","EU",1,1990,1300,NA
+"800","LV","LVA","Latvia","EU",1,1990,3000,NA
+"801","LV","LVA","Latvia","EU",1,2023,3000,0.022333
+"802","LV","LVA","Latvia","EU",1,2023,4000,2.283659
+"803","LV","LVA","Latvia","EU",1,2023,5000,41.972604
+"804","LV","LVA","Latvia","EU",1,1990,1100,NA
+"805","LV","LVA","Latvia","EU",1,2023,1200,4.184407
+"806","LV","LVA","Latvia","EU",1,1990,4000,NA
+"807","LV","LVA","Latvia","EU",1,1990,5000,NA
+"808","LV","LVA","Latvia","EU",1,2023,2000,31.866989
+"809","LV","LVA","Latvia","EU",1,1990,6000,NA
+"810","LV","LVA","Latvia","EU",1,1990,1200,NA
+"811","LV","LVA","Latvia","EU",1,1990,2000,NA
+"812","LV","LVA","Latvia","EU",1,2023,6000,0
+"836","MX","MEX","Mexico","NO",1,2023,3000,3.022539
+"837","MX","MEX","Mexico","NO",1,2023,6000,2.027247
+"838","MX","MEX","Mexico","NO",1,1990,3000,1.761682
+"839","MX","MEX","Mexico","NO",1,1990,6000,1.587181
+"840","MX","MEX","Mexico","NO",1,1990,1100,NA
+"841","MX","MEX","Mexico","NO",1,1990,4000,1.876383
+"842","MX","MEX","Mexico","NO",1,2023,5000,35.158915
+"843","MX","MEX","Mexico","NO",1,1990,2000,16.827644
+"844","MX","MEX","Mexico","NO",1,1990,5000,43.955563
+"845","MX","MEX","Mexico","NO",1,2023,4000,1.693662
+"846","MX","MEX","Mexico","NO",1,2023,1200,22.052062
+"847","MX","MEX","Mexico","NO",1,2023,1100,21.107782
+"848","MX","MEX","Mexico","NO",1,2023,2000,13.505284
+"849","MX","MEX","Mexico","NO",1,1990,1300,33.991547
+"850","MX","MEX","Mexico","NO",1,2023,1300,1.43251
+"851","MX","MEX","Mexico","NO",1,1990,1200,NA
+"955","NL","NLD","Netherlands","EU",1,2023,1100,23.099777
+"956","NL","NLD","Netherlands","EU",1,1990,5000,26.4178
+"957","NL","NLD","Netherlands","EU",1,2023,6000,0.335273
+"958","NL","NLD","Netherlands","EU",1,2023,2000,31.412546
+"959","NL","NLD","Netherlands","EU",1,1990,6000,0.243362
+"960","NL","NLD","Netherlands","EU",1,2023,5000,29.236313
+"961","NL","NLD","Netherlands","EU",1,1990,1200,7.548564
+"962","NL","NLD","Netherlands","EU",1,2023,1200,12.689062
+"963","NL","NLD","Netherlands","EU",1,1990,3000,0
+"964","NL","NLD","Netherlands","EU",1,2023,3000,0
+"965","NL","NLD","Netherlands","EU",1,1990,4000,3.654774
+"966","NL","NLD","Netherlands","EU",1,1990,1300,0
+"967","NL","NLD","Netherlands","EU",1,1990,1100,24.714267
+"968","NL","NLD","Netherlands","EU",1,1990,2000,37.421233
+"969","NL","NLD","Netherlands","EU",1,2023,1300,0
+"970","NL","NLD","Netherlands","EU",1,2023,4000,3.22703
+"971","NO","NOR","Norway","EU",1,1990,4000,2.930131
+"972","NO","NOR","Norway","EU",1,1990,6000,0.003627
+"973","NO","NOR","Norway","EU",1,1990,3000,0
+"974","NO","NOR","Norway","EU",1,2023,1100,23.293807
+"975","NO","NOR","Norway","EU",1,2023,6000,0
+"976","NO","NOR","Norway","EU",1,1990,1100,26.069496
+"977","NO","NOR","Norway","EU",1,1990,1200,8.975361
+"978","NO","NOR","Norway","EU",1,1990,1300,0
+"979","NO","NOR","Norway","EU",1,2023,4000,2.887557
+"980","NO","NOR","Norway","EU",1,2023,5000,23.159947
+"981","NO","NOR","Norway","EU",1,2023,3000,0.121858
+"982","NO","NOR","Norway","EU",1,1990,2000,26.166431
+"983","NO","NOR","Norway","EU",1,2023,2000,22.246269
+"984","NO","NOR","Norway","EU",1,1990,5000,35.854954
+"985","NO","NOR","Norway","EU",1,2023,1300,0
+"986","NO","NOR","Norway","EU",1,2023,1200,28.290562
+"995","NZ","NZL","New Zealand","OC",1,2023,4000,5.952372
+"996","NZ","NZL","New Zealand","OC",1,1990,3000,0
+"997","NZ","NZL","New Zealand","OC",1,1990,1100,47.967471
+"998","NZ","NZL","New Zealand","OC",1,1990,1200,6.479631
+"999","NZ","NZL","New Zealand","OC",1,1990,5000,33.561941
+"1000","NZ","NZL","New Zealand","OC",1,2023,3000,0
+"1001","NZ","NZL","New Zealand","OC",1,2023,6000,0.000712
+"1002","NZ","NZL","New Zealand","OC",1,1990,6000,0.00364
+"1003","NZ","NZL","New Zealand","OC",1,2023,5000,35.443705
+"1004","NZ","NZL","New Zealand","OC",1,1990,2000,0
+"1005","NZ","NZL","New Zealand","OC",1,1990,4000,6.843655
+"1006","NZ","NZL","New Zealand","OC",1,2023,2000,0
+"1007","NZ","NZL","New Zealand","OC",1,2023,1300,4.238066
+"1008","NZ","NZL","New Zealand","OC",1,2023,1200,12.349696
+"1009","NZ","NZL","New Zealand","OC",1,1990,1300,5.143662
+"1010","NZ","NZL","New Zealand","OC",1,2023,1100,42.015449
+"1049","PL","POL","Poland","EU",1,2023,6000,6.013922
+"1050","PL","POL","Poland","EU",1,1990,4000,NA
+"1051","PL","POL","Poland","EU",1,2023,2000,38.057174
+"1052","PL","POL","Poland","EU",1,2023,4000,3.248366
+"1053","PL","POL","Poland","EU",1,1990,5000,NA
+"1054","PL","POL","Poland","EU",1,2023,1200,7.48514
+"1055","PL","POL","Poland","EU",1,2023,3000,1.565042
+"1056","PL","POL","Poland","EU",1,2023,1100,12.257562
+"1057","PL","POL","Poland","EU",1,1990,3000,NA
+"1058","PL","POL","Poland","EU",1,2023,5000,31.372795
+"1059","PL","POL","Poland","EU",1,1990,1200,NA
+"1060","PL","POL","Poland","EU",1,2023,1300,0
+"1061","PL","POL","Poland","EU",1,1990,1100,NA
+"1062","PL","POL","Poland","EU",1,1990,6000,NA
+"1063","PL","POL","Poland","EU",1,1990,1300,NA
+"1064","PL","POL","Poland","EU",1,1990,2000,NA
+"1065","PT","PRT","Portugal","EU",1,2023,4000,3.979196
+"1066","PT","PRT","Portugal","EU",1,2023,5000,37.278062
+"1067","PT","PRT","Portugal","EU",1,1990,1100,15.854183
+"1068","PT","PRT","Portugal","EU",1,2023,6000,0.460044
+"1069","PT","PRT","Portugal","EU",1,1990,3000,0
+"1070","PT","PRT","Portugal","EU",1,1990,4000,2.712217
+"1071","PT","PRT","Portugal","EU",1,1990,5000,44.215544
+"1072","PT","PRT","Portugal","EU",1,1990,6000,0.249312
+"1073","PT","PRT","Portugal","EU",1,1990,2000,27.155278
+"1074","PT","PRT","Portugal","EU",1,2023,1300,0
+"1075","PT","PRT","Portugal","EU",1,2023,1100,19.490035
+"1076","PT","PRT","Portugal","EU",1,2023,3000,0
+"1077","PT","PRT","Portugal","EU",1,1990,1300,1.841611
+"1078","PT","PRT","Portugal","EU",1,2023,1200,9.692041
+"1079","PT","PRT","Portugal","EU",1,1990,1200,7.971856
+"1080","PT","PRT","Portugal","EU",1,2023,2000,29.100622
+"1152","SK","SVK","Slovakia","EU",1,2023,3000,0
+"1153","SK","SVK","Slovakia","EU",1,2023,5000,34.800558
+"1154","SK","SVK","Slovakia","EU",1,2023,4000,1.169354
+"1155","SK","SVK","Slovakia","EU",1,1990,5000,NA
+"1156","SK","SVK","Slovakia","EU",1,2023,1300,0.987899
+"1157","SK","SVK","Slovakia","EU",1,2023,1200,9.983476
+"1158","SK","SVK","Slovakia","EU",1,2023,6000,0
+"1159","SK","SVK","Slovakia","EU",1,1990,1300,NA
+"1160","SK","SVK","Slovakia","EU",1,1990,1100,NA
+"1161","SK","SVK","Slovakia","EU",1,1990,6000,NA
+"1162","SK","SVK","Slovakia","EU",1,2023,2000,42.44891
+"1163","SK","SVK","Slovakia","EU",1,1990,2000,NA
+"1164","SK","SVK","Slovakia","EU",1,1990,4000,NA
+"1165","SK","SVK","Slovakia","EU",1,1990,1200,NA
+"1166","SK","SVK","Slovakia","EU",1,1990,3000,NA
+"1167","SK","SVK","Slovakia","EU",1,2023,1100,10.609804
+"1168","SI","SVN","Slovenia","EU",1,1990,3000,NA
+"1169","SI","SVN","Slovenia","EU",1,2023,3000,0.116783
+"1170","SI","SVN","Slovenia","EU",1,1990,2000,NA
+"1171","SI","SVN","Slovenia","EU",1,1990,1300,NA
+"1172","SI","SVN","Slovenia","EU",1,2023,2000,42.903358
+"1173","SI","SVN","Slovenia","EU",1,1990,4000,NA
+"1174","SI","SVN","Slovenia","EU",1,2023,4000,1.50798
+"1175","SI","SVN","Slovenia","EU",1,2023,1100,13.957438
+"1176","SI","SVN","Slovenia","EU",1,1990,1200,NA
+"1177","SI","SVN","Slovenia","EU",1,2023,6000,0
+"1178","SI","SVN","Slovenia","EU",1,1990,6000,NA
+"1179","SI","SVN","Slovenia","EU",1,2023,1200,6.410961
+"1180","SI","SVN","Slovenia","EU",1,1990,5000,NA
+"1181","SI","SVN","Slovenia","EU",1,1990,1100,NA
+"1182","SI","SVN","Slovenia","EU",1,2023,1300,0.013442
+"1183","SI","SVN","Slovenia","EU",1,2023,5000,35.090037
+"1184","SE","SWE","Sweden","EU",1,2023,6000,0.080139
+"1185","SE","SWE","Sweden","EU",1,2023,3000,12.778242
+"1186","SE","SWE","Sweden","EU",1,2023,1200,8.601279
+"1187","SE","SWE","Sweden","EU",1,2023,1300,0
+"1188","SE","SWE","Sweden","EU",1,1990,6000,0.167206
+"1189","SE","SWE","Sweden","EU",1,1990,2000,27.232778
+"1190","SE","SWE","Sweden","EU",1,1990,1200,3.128634
+"1191","SE","SWE","Sweden","EU",1,2023,1100,26.730179
+"1192","SE","SWE","Sweden","EU",1,1990,1100,38.51377
+"1193","SE","SWE","Sweden","EU",1,1990,4000,3.522706
+"1194","SE","SWE","Sweden","EU",1,2023,5000,28.397525
+"1195","SE","SWE","Sweden","EU",1,2023,2000,21.444181
+"1196","SE","SWE","Sweden","EU",1,1990,3000,2.471847
+"1197","SE","SWE","Sweden","EU",1,2023,4000,1.968456
+"1198","SE","SWE","Sweden","EU",1,1990,1300,0
+"1199","SE","SWE","Sweden","EU",1,1990,5000,24.96306
+"1269","TR","TUR","Turkey","AS",1,2023,6000,0.938282
+"1270","TR","TUR","Turkey","AS",1,2023,1200,12.758534
+"1271","TR","TUR","Turkey","AS",1,2023,3000,0
+"1272","TR","TUR","Turkey","AS",1,2023,1100,11.261329
+"1273","TR","TUR","Turkey","AS",1,1990,6000,16.686389
+"1274","TR","TUR","Turkey","AS",1,2023,1300,0
+"1275","TR","TUR","Turkey","AS",1,1990,2000,19.654022
+"1276","TR","TUR","Turkey","AS",1,1990,5000,27.91942
+"1277","TR","TUR","Turkey","AS",1,2023,4000,2.984396
+"1278","TR","TUR","Turkey","AS",1,1990,1100,26.789134
+"1279","TR","TUR","Turkey","AS",1,1990,1300,0
+"1280","TR","TUR","Turkey","AS",1,2023,2000,26.470954
+"1281","TR","TUR","Turkey","AS",1,1990,1200,6.675985
+"1282","TR","TUR","Turkey","AS",1,1990,4000,2.275049
+"1283","TR","TUR","Turkey","AS",1,1990,3000,0
+"1284","TR","TUR","Turkey","AS",1,2023,5000,45.586504
+"1308","US","USA","United States of America","NO",1,1990,6000,0
+"1309","US","USA","United States of America","NO",1,2023,4000,11.002438
+"1310","US","USA","United States of America","NO",1,1990,1300,0
+"1311","US","USA","United States of America","NO",1,1990,5000,17.476098
+"1312","US","USA","United States of America","NO",1,2023,5000,16.772745
+"1313","US","USA","United States of America","NO",1,1990,1200,7.536527
+"1314","US","USA","United States of America","NO",1,2023,6000,0
+"1315","US","USA","United States of America","NO",1,1990,2000,25.571294
+"1316","US","USA","United States of America","NO",1,1990,3000,0
+"1317","US","USA","United States of America","NO",1,1990,4000,11.75
+"1318","US","USA","United States of America","NO",1,1990,1100,37.666081
+"1319","US","USA","United States of America","NO",1,2023,2000,24.036881
+"1320","US","USA","United States of America","NO",1,2023,1200,8.265277
+"1321","US","USA","United States of America","NO",1,2023,1300,0
+"1322","US","USA","United States of America","NO",1,2023,3000,0.059593
+"1323","US","USA","United States of America","NO",1,2023,1100,39.863066
