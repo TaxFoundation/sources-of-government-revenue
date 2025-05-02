@@ -248,8 +248,8 @@ oecd_data_1990 <- subset(oecd_data_1990, subset = year == 1990)
 oecd_data_1990 <- subset(oecd_data_1990, subset = oecd == 1)
 oecd_data_1990$share<-as.numeric(oecd_data_1990$share)
 
-#Drop countries for which 1990 data is available but that were not part of the OECD in 1990 including Colombia and Costa Rica
-oecd_data_1990 <- subset(oecd_data_1990, oecd_data_1990$iso_3 != "CZE" & oecd_data_1990$iso_3 != "EST" & oecd_data_1990$iso_3 != "HUN" & oecd_data_1990$iso_3 != "ISL" & oecd_data_1990$iso_3 != "ISR" & oecd_data_1990$iso_3 != "CHL" & oecd_data_1990$iso_3 != "LVA" & oecd_data_1990$iso_3 != "LTU" & oecd_data_1990$iso_3 != "SVK" & oecd_data_1990$iso_3 != "SVN" & oecd_data_1990$iso_3 != "POL"& oecd_data_1990$iso_3 != "MEX" & oecd_data_1990$iso_3 != "CHL"& oecd_data_1990$iso_3 != "KOR" & oecd_data_1990$iso_3 != "COL" & oecd_data_1990$iso_3 != "CRI")
+#Drop countries that were not part of the OECD in 1990 including Colombia and Costa Rica
+oecd_data_1990 <- subset(oecd_data_1990, oecd_data_1990$iso_3 != "CZE" & oecd_data_1990$iso_3 != "EST" & oecd_data_1990$iso_3 != "HUN" & oecd_data_1990$iso_3 != "ISR" & oecd_data_1990$iso_3 != "CHL" & oecd_data_1990$iso_3 != "LVA" & oecd_data_1990$iso_3 != "LTU" & oecd_data_1990$iso_3 != "SVK" & oecd_data_1990$iso_3 != "SVN" & oecd_data_1990$iso_3 != "POL"& oecd_data_1990$iso_3 != "MEX" & oecd_data_1990$iso_3 != "CHL"& oecd_data_1990$iso_3 != "KOR" & oecd_data_1990$iso_3 != "COL" & oecd_data_1990$iso_3 != "CRI")
                         
 #Calculate averages for 1100 (individual taxes) for 1990 data
 individual_1100_90 <- subset(oecd_data_1990, category==1100)
@@ -828,8 +828,6 @@ colnames(regional_averages)[colnames(regional_averages)=="samerica_averages..Ave
 colnames(regional_averages)[colnames(regional_averages)=="average_oecd"] <- "OECD"
 
 write.csv(regional_averages, "final-outputs/regional_averages.csv")
-
-#This part has not been updated in 2025#########
 
 #Reading in and cleaning OECD's Revenue Statistics - OECD countries by level of government####
 #dataset_list <- get_datasets()
